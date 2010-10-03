@@ -1,3 +1,5 @@
+# Ignore files from the default docuwiki installation.
+
 .htaccess
 .htaccess.dist
 COPYING
