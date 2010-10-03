@@ -1,0 +1,235 @@
+
+body {
+  min-width: 600px;
+  margin: 10px auto;
+  padding:0;
+  background-color: #fff;
+  color: #000;
+  font: 80% arial, verdana, sans-serif;
+}
+
+div.meta {
+  clear:both;
+  margin-top: 1em;
+  font-size:70%;
+  text-align:right;
+}
+
+.clear {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+div.notify,
+div.info,
+div.success,
+div.error,
+div.breadcrumbs,
+div.secedit {
+  display:none;
+}
+
+/* --------------------- Text formating -------------------------------- */
+
+:link, :visited, :link:active, :link:active {
+  color: #154374;
+  text-decoration: underline;
+}
+:link:hover, :visited:hover {
+  color: #f00;
+  text-decoration: underline;
+}
+
+/* external link */
+a.urlextern:after {
+   content: " [" attr(href) "]";
+   font-size: 90%;
+}
+
+/* interwiki link */
+a.interwiki:after {
+   content: " [" attr(href) "]";
+   font-size: 90%;
+}
+
+/* email link */
+a.mail:after {
+   content: " [" attr(href) "]";
+   font-size: 90%;
+}
+
+/* existing wikilink */
+a.wikilink1    {text-decoration:underline }
+
+/* the document */
+p {
+  margin: 0.3em 0.5em;
+  padding: 0;
+}
+
+.box {
+  color: inherit;
+  background-color: #eee;
+  margin: 1em;
+  padding: 0.5em 1.5em;
+}
+
+/* general headline setup */
+h1, h2, h3, h4, h5 {
+  color: #154374;
+  background: none;
+  font-weight: bold;
+  margin: 0;
+  padding-top: .5em;
+  padding-bottom: .17em;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+/* special headlines */
+h1 {font-size: 160%; padding-top: 0; }
+h2 {font-size: 140%; }
+h3 {font-size: 120%; }
+h4 {font-size: 100%; }
+h5 {font-size: 80%; }
+
+/* embedded images */
+img.media {
+  margin: 3px;
+}
+
+img.medialeft {
+  border: 0;
+  float: left;
+  margin: 0 1.5em 0 0;
+}
+
+img.mediaright {
+  border: 0;
+  float: right;
+  margin: 0 0 0 1.5em;
+}
+
+/* unordered lists */
+ul {
+    line-height: 1.5em;
+    list-style-type: square;
+    margin: 0 0 0.5em 1.5em;
+    padding: 0;
+
+}
+
+/* ordered lists */
+ol {
+    line-height: 1.5em;
+    margin: 0 0 0.5em 2.5em;
+    padding: 0;
+    font-weight: normal;
+}
+ol ol {
+    margin: 0 0 0.5em 1.5em;
+}
+
+div.dokuwiki ol {list-style-type: decimal}
+div.dokuwiki ol ol {list-style-type: upper-roman}
+div.dokuwiki ol ol ol {list-style-type: lower-alpha}
+div.dokuwiki ol ol ol ol {list-style-type: lower-greek}
+
+/* the list items overriding the ol definition */
+span.li {
+    font-weight: normal;
+}
+
+/* code blocks by indention */
+pre.pre {
+  font-size: 8pt;
+  padding: 0.5em;
+  border: 1px dashed #000000;
+  color: Black;
+  overflow: visible;
+}
+
+/* code blocks by code tag */
+pre.code {
+  font-size: 8pt;
+  padding: 0.5em;
+  border: 1px dashed #000000;
+  color: Black;
+  overflow: visible;
+}
+
+/* inline code words */
+code {
+  font-size: 120%;
+}
+
+/* code blocks by file tag */
+pre.file {
+  font-size: 8pt;
+  padding: 0.5em;
+  border: 1px dotted #000000;
+  color: Black;
+  overflow: visible;
+}
+
+/* footnotes */
+div.footnotes{
+  clear:both;
+  border-top: 1px solid #000000;
+  padding-left: 1em;
+  margin-top: 1em;
+}
+
+div.fn{
+  font-size:90%;
+}
+
+a.fn_top{
+  vertical-align:super;
+  font-size:80%;
+}
+
+a.fn_bot{
+  vertical-align:super;
+  font-size:80%;
+  font-weight:bold;
+}
+
+acronym{
+  border: 0;
+}
+
+/* ---------- inline tables ------------------- */
+
+table.inline {
+  font-size: 80%;
+  background-color: #ffffff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+table.inline th {
+  padding: 3px;
+  border: 1px solid #000000;
+  border-bottom: 2px solid #000000;
+}
+
+table.inline td {
+  padding: 3px;
+  border: 1px solid #000000;
+}
+
+.leftalign{
+  text-align: left;
+}
+
+.centeralign{
+  text-align: center;
+}
+
+.rightalign{
+  text-align: right;
+}
+
+.toc, .footerinc, .header, .bar, .user {display:none}
+
