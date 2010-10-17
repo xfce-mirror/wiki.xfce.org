@@ -55,7 +55,7 @@ if (!defined('DOKU_INC')) die();
     </div>
 
     <div id="xfce-menu-translation">
-      <?php /*old includehook*/ @include(dirname(__FILE__).'/pageheader.html')?>
+      <?php /*old includehook*/ @include(dirname(__FILE__).'/translations.html')?>
     </div>
 
     <?php if($conf['breadcrumbs']){?>
