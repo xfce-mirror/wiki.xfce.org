@@ -19,7 +19,7 @@ body {
   background-repeat: no-repeat;
   background-image: url(images/bg-xfce.png);
   color: #000;
-  font: arial, verdana, sans-serif;
+  font-family: arial, helvetica, sans-serif;
 }
 
 .clear {
@@ -642,14 +642,18 @@ div.dokuwiki table.inline {
 }
 
 div.dokuwiki table.inline th {
-  padding: 3px;
-  border: 1px solid __border__;
-  background-color: __background_alt__;
+  padding: 4px;
+  border: 0;
+  background-color: __background__;
+  color: #154374;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 div.dokuwiki table.inline td {
-  padding: 3px;
-  border: 1px solid __border__;
+  border: 2px solid __background__;
+  background-color: #eee;
+  padding: 1px 3px;
 }
 
 /* ---------- table of contents ------------------- */
