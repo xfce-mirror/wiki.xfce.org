@@ -11,8 +11,8 @@
 
 body {
   min-width: 650px;
-  margin: 0 auto;
-  padding: 10px;
+  margin: 0;
+  padding: 0;
   background-color: #fff;
   background-position: bottom right;
   background-attachment: fixed;
@@ -20,6 +20,11 @@ body {
   background-image: url(images/bg-xfce.png);
   color: #000;
   font-family: arial, helvetica, sans-serif;
+}
+
+body div.dokuwiki {
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .clear {
@@ -182,6 +187,7 @@ div.dokuwiki div.page {
 }
 
 div.dokuwiki div.license {
+  clear: both;
   text-align: left;
 }
 
@@ -224,7 +230,6 @@ div.dokuwiki div.nothing {
 /* ---------------- forms ------------------------ */
 
 div.dokuwiki form {
-  border: none;
   display: inline;
 }
 

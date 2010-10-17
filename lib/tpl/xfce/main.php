@@ -33,8 +33,9 @@ if (!defined('DOKU_INC')) die();
 </head>
 
 <body>
+<div><?php html_msgarea()?></div>
+
 <div class="dokuwiki">
-  <?php html_msgarea()?>
 
   <div id="xfce-header" class="hidden">
     <h1>Xfce Wiki</h1>
