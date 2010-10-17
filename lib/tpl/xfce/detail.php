@@ -9,7 +9,7 @@
  *
  * @link   http://wiki.splitbrain.org/wiki:tpl:templates
  * @author Andreas Gohr <andi@splitbrain.org>
- */
+ **/
 
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
