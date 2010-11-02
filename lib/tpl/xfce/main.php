@@ -10,6 +10,18 @@
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
 
+/**
+ * Reverse compatibility for DokuWiki < 2010-10-27
+ */
+function __tpl_flush(){
+	if (function_exists('tpl_flush')){
+		tpl_flush();
+	} else {
+		ob_flush();
+		flush();
+	}
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -82,7 +94,7 @@ if (!defined('DOKU_INC')) die();
     </div>
 
   </div>
-  <?php tpl_flush()?>
+  <?php __tpl_flush()?>
 
   <div class="page">
     <!-- wikipage start -->
@@ -92,7 +104,7 @@ if (!defined('DOKU_INC')) die();
 
   <div class="clearer">&nbsp;</div>
 
-  <?php tpl_flush()?>
+  <?php __tpl_flush()?>
 
   <div class="stylefoot">
 
@@ -101,7 +113,7 @@ if (!defined('DOKU_INC')) die();
         <?php tpl_pageinfo()?>
       </div>
       <div class="user">
-        <?php tpl_userinfo()?>
+        <?php tpl_userinfo()?>&nbsp;
       </div>
     </div>
 
