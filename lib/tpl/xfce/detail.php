@@ -1,15 +1,11 @@
 <?php
 /**
- * DokuWiki Image Detail Template
+ * Xfce Wiki Template
  *
- * This is the template for displaying image details
+ * This template is based on top of the default DokuWiki template.
  *
- * You should leave the doctype at the very top - It should
- * always be the very first line of a document.
- *
- * @link   http://wiki.splitbrain.org/wiki:tpl:templates
- * @author Andreas Gohr <andi@splitbrain.org>
- **/
+ * @author Mike Massonnet <andi@splitbrain.org>
+ */
 
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
@@ -20,19 +16,18 @@ if (!defined('DOKU_INC')) die();
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang']?>" lang="<?php echo $conf['lang']?>" dir="ltr">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>
-     <?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?>
-    [<?php echo strip_tags($conf['title'])?>]
-  </title>
+  <title><?php echo strip_tags($conf['title'])?> - <?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?></title>
 
   <?php tpl_metaheaders()?>
 
-  <link rel="shortcut icon" href="<?php echo DOKU_TPL?>images/favicon.ico" />
+  <link rel="shortcut icon" href="<?php echo DOKU_TPL?>images/favicon.png" />
 </head>
 
 <body>
+
+<div class="msgarea"><?php html_msgarea()?></div>
+
 <div class="dokuwiki">
-  <?php html_msgarea()?>
 
   <div class="page">
     <?php if($ERROR){ print $ERROR; }else{ ?>
@@ -45,10 +40,7 @@ if (!defined('DOKU_INC')) die();
 
     <div class="img_detail">
       <p class="img_caption">
-        <?php print nl2br(hsc(tpl_img_getTag(array('IPTC.Caption',
-                                               'EXIF.UserComment',
-                                               'EXIF.TIFFImageDescription',
-                                               'EXIF.TIFFUserComment')))); ?>
+        <?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?>
       </p>
 
       <p>&larr; <?php echo $lang['img_backto']?> <?php tpl_pagelink($ID)?></p>
@@ -56,7 +48,7 @@ if (!defined('DOKU_INC')) die();
       <dl class="img_tags">
         <?php
           $t = tpl_img_getTag('Date.EarliestTime');
-          if($t) print '<dt>'.$lang['img_date'].':</dt><dd>'.date($conf['dformat'],$t).'</dd>';
+          if($t) print '<dt>'.$lang['img_date'].':</dt><dd>'.dformat($t).'</dd>';
 
           $t = tpl_img_getTag('File.Name');
           if($t) print '<dt>'.$lang['img_fname'].':</dt><dd>'.hsc($t).'</dd>';
@@ -76,7 +68,7 @@ if (!defined('DOKU_INC')) die();
           $t = tpl_img_getTag('Simple.Camera');
           if($t) print '<dt>'.$lang['img_camera'].':</dt><dd>'.hsc($t).'</dd>';
 
-          $t = tpl_img_getTag(array('IPTC.Keywords','IPTC.Category'));
+          $t = tpl_img_getTag(array('IPTC.Keywords','IPTC.Category','xmp.dc:subject'));
           if($t) print '<dt>'.$lang['img_keywords'].':</dt><dd>'.hsc($t).'</dd>';
 
         ?>
