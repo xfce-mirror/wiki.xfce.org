@@ -14,53 +14,31 @@ div.dokuwiki {
 }
 
 body > div.export {
-  margin-right: 180px;
+  margin-right: 210px;
 }
 
 div.dokuwiki div.page {
-  margin: 4px 180px 4px 0;
+  margin: 4px 210px 4px 0;
   min-height: 300px;
 }
 
 div.dokuwiki div.toc {
-  margin: 1.2em -180px 0 0;
-  width: 170px;
+  margin: 1.2em -210px 0 0;
+  width: 190px;
 }
 
 div.dokuwiki div.stylefoot {
-  margin-right: 170px;
-}
-
-/* -------------- top row --------------- */
-div.dokuwiki .header {
-}
-
-div.dokuwiki .header #banner {
-  height: 125px;
-  background: url(images/header.png) repeat-x;
-}
-
-div.dokuwiki .header #banner > #banner-top-left {
-  width: 350px;
-  height: 125px;
-  float: left;
-  background: url(images/header-top-left.png) no-repeat;
-}
-
-div.dokuwiki .header #banner > #banner-top-right {
-  width: 15px;
-  height: 15px;
-  float: right;
-  background: url(images/header-top-right.png) no-repeat;
+  margin-right: 210px;
 }
 
 /* ---------------  top and bottom bar ---------------- */
 div.dokuwiki #bar__top {
-  border: 1px solid __border__;
-  background: __background_bar__ url(images/bar.png) repeat-x;
-  font-size: 90%;
-  padding: 1px 3px;
+  padding: 1px 0 0.22em 0;
   clear: both;
+}
+
+div.dokuwiki div.header div.clearer {
+  padding-bottom: 8px !important;
 }
 
 div.dokuwiki #bar__top input[type="text"] {
@@ -77,6 +55,10 @@ div.dokuwiki #bar__top input[type="submit"] {
   color: __text_bar__;
 }
 
+div.dokuwiki #bar__top input[type="submit"]:hover {
+  color: __existing__;
+}
+
 div.dokuwiki .bar a,
 div.dokuwiki div.breadcrumbs a {
   font-weight: bold;
@@ -86,6 +68,7 @@ div.dokuwiki div.breadcrumbs a {
 
 div.dokuwiki .bar a:hover,
 div.dokuwiki div.breadcrumbs a:hover {
+  color: __existing__ !important;
   text-decoration: none;
 }
 
@@ -99,13 +82,18 @@ div.dokuwiki #bar__top ul {
 
 div.dokuwiki #bar__top ul li:first-child {
   border-left: 0;
+  padding-left: 0;
 }
 
 div.dokuwiki #bar__top ul > li {
-  padding: 0 0.6em 0 0.8em;
+  padding: 4px 0.6em 4px 0.8em;
   display: inline;
   vertical-align: middle;
   border-left: 1px solid __border__;
+}
+
+div.dokuwiki #bar__bottom {
+  margin: 0.8em 0;
 }
 
 div.dokuwiki #bar__bottom div a:first-child {
@@ -116,7 +104,7 @@ div.dokuwiki #bar__bottom div a:first-child {
 
 div.dokuwiki #bar__bottom div a {
   margin-left: 0.8em;
-  padding-left: 0.8em;
+  padding: 4px 0 4px 0.8em;
   border-left: 1px solid __border__;
 }
 
@@ -127,10 +115,6 @@ div.dokuwiki .bar-left {
 div.dokuwiki .bar-right {
   float: right;
   text-align: right;
-}
-
-div.dokuwiki #bar__bottom {
-  margin-bottom: 3px;
 }
 
 /* ------------- File Metadata ----------------------- */

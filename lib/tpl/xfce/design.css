@@ -11,7 +11,7 @@
 * { padding: 0; margin: 0; }
 
 body {
-  font: 80% Helvetica, Arial, sans-serif;
+  font: 90% Helvetica, Arial, sans-serif;
   background-color: __background__;
   color: __text__;
 }
@@ -50,6 +50,7 @@ div.dokuwiki blockquote,
 div.dokuwiki table,
 div.dokuwiki pre {
   margin: 0 0 1.0em 0;
+  line-height: 1.7em;
 }
 
 div.dokuwiki hr {
@@ -62,6 +63,9 @@ div.dokuwiki hr {
 div.dokuwiki div.nothing {
   text-align: center;
   margin: 2em;
+}
+
+div.dokuwiki div.header {
 }
 
 div.dokuwiki div.stylefoot {
@@ -274,12 +278,12 @@ div.dokuwiki div.pagenav-next {
 div.dokuwiki a:link,
 div.dokuwiki a:visited {
   color: __extern__;
-  text-decoration: underline;
+  text-decoration: none;
 }
 div.dokuwiki a:hover,
 div.dokuwiki a:active {
   color: __hover__;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 div.dokuwiki h1 a,
@@ -288,7 +292,7 @@ div.dokuwiki h3 a,
 div.dokuwiki h4 a,
 div.dokuwiki h5 a,
 div.dokuwiki a.nolink {
-  color: __text__ !important;
+  color: __text_neu__ !important;
   text-decoration: none !important;
 }
 
@@ -347,7 +351,6 @@ div.dokuwiki a.wikilink1 {
 
 /* not existing wikipage */
 div.dokuwiki a.wikilink2 {
-  color: __existing__ !important;
   text-decoration: none !important;
   border-bottom: dashed 1px __missing__ !important;
 }
@@ -362,10 +365,9 @@ div.dokuwiki div.preview {
 }
 
 div.dokuwiki div.breadcrumbs {
-  background-color: __background_neu__;
   color: __text_neu__;
   font-size: 84%;
-  padding: 0 0 0 4px;
+  padding: 0.22em 0 0 0;
 }
 
 div.dokuwiki div.translation {
@@ -381,6 +383,18 @@ div.dokuwiki div.plugin_translation {
 }
 
 div.dokuwiki div.plugin_translation span {
+  display: none;
+}
+
+div.dokuwiki div.translation a.action {
+  display: block;
+  float: right;
+  padding: 0.2em;
+  margin: 0 0.2em;
+  font-weight: bold;
+}
+
+div.dokuwiki div.translation a.action:first-child {
   display: none;
 }
 
@@ -434,10 +448,10 @@ div.dokuwiki h3,
 div.dokuwiki h4,
 div.dokuwiki h5 {
     font-size: 100%;
-    font-weight: bold;
-    color: __extern__ !important;
+    font-weight: normal;
+    color: __text_neu__ !important;
     margin: 0 0 1em 0;
-    padding: 0.5em 0 0 0;
+    padding: 0.5em 0 0.34em 0;
     border-bottom: 1px solid __border__;
     clear: left;
 }
@@ -447,16 +461,16 @@ div.dokuwiki h2 a,
 div.dokuwiki h3 a,
 div.dokuwiki h4 a,
 div.dokuwiki h5 a {
-    color: __extern__ !important;
+    color: __text_neu__ !important;
     background-color: inherit;
 }
 
 /* special headlines */
-div.dokuwiki h1 {font-size: 160%; margin-left: 0px; font-weight: bold;}
-div.dokuwiki h2 {font-size: 150%; margin-left: 20px;}
-div.dokuwiki h3 {font-size: 140%; margin-left: 40px; border-bottom: none; font-weight: bold;}
-div.dokuwiki h4 {font-size: 120%; margin-left: 60px; border-bottom: none; font-weight: bold;}
-div.dokuwiki h5 {font-size: 100%; margin-left: 80px; border-bottom: none; font-weight: bold;}
+div.dokuwiki h1 {font-size: 180%; margin-left: 0px; }
+div.dokuwiki h2 {font-size: 170%; margin-left: 20px;}
+div.dokuwiki h3 {font-size: 160%; margin-left: 40px; border-bottom: none; }
+div.dokuwiki h4 {font-size: 150%; margin-left: 60px; border-bottom: none; }
+div.dokuwiki h5 {font-size: 120%; margin-left: 80px; border-bottom: none; }
 
 /* indent different sections */
 div.dokuwiki div.level1 { margin-left: 3px; }
@@ -467,7 +481,7 @@ div.dokuwiki div.level5 { margin-left: 83px; }
 
 /* unordered lists */
 div.dokuwiki ul {
-  line-height: 1.5em;
+  line-height: 1.7em;
   list-style-type: square;
   list-style-image: none;
   margin: 0 0 1em 3.5em;
@@ -476,7 +490,7 @@ div.dokuwiki ul {
 
 /* ordered lists */
 div.dokuwiki ol {
-  line-height: 1.5em;
+  line-height: 1.7em;
   list-style-image: none;
   margin: 0 0 1em 3.5em;
   color: __text_alt__;
@@ -647,9 +661,12 @@ div.dokuwiki ul.toc {
   margin: 0;
 }
 
-div.dokuwiki ul.toc li.level1 {
-  background: transparent url(images/bullit.gif) 0 0.6em no-repeat;
-  padding-left: 10px;
+div.dokuwiki ul.toc li.level1 > div.li span.li {
+  font-weight: bold;
+  color: __meta2__;
+}
+div.dokuwiki ul.toc li.level1 > div.li span.li:before {
+  content: "\25B6\2002";
 }
 
 div.dokuwiki ul.toc li.level1 > div.li {
@@ -663,12 +680,12 @@ div.dokuwiki ul.toc li.clear {
 
 div.dokuwiki a.toc:link,
 div.dokuwiki a.toc:visited {
-  color: __extern__;
+  color: __meta2__;
 }
 
 div.dokuwiki a.toc:hover,
 div.dokuwiki a.toc:active {
-  color: __text__;
+  color: __existing__;
 }
 
 /* ---------------------------- Diff rendering --------------------------*/

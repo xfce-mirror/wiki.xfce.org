@@ -39,58 +39,52 @@ function __tpl_flush(){
 
 <body>
 
+<?php include "xfce-header.html" ?>
+
 <div class="msgarea"><?php html_msgarea()?></div>
 
-<div class="bottom-right-corner"></div>
+<div role="logo" class="bottom-right-corner"></div>
 
 <div class="dokuwiki">
 
   <div class="stylehead">
 
     <div class="header">
+
       <div class="hidden">
         <?php tpl_link(wl(),$conf['title'],'name="dokuwiki__top" id="dokuwiki__top"')?>
       </div>
-      
-      <div id="banner">
-        <div id="banner-top-left">
-        </div>
-        <div id="banner-top-right">
-        </div>
-      </div>
-      
-      <div class="clearer"></div>
-    </div>
 
-    <div class="bar" id="bar__top">
-      <div class="bar-left" id="bar__topleft">
-        <ul>
-          <li><?php tpl_link(wl(), 'Wiki', 'class="action" accesskey="h" rel="nofollow" title="'.$conf['title'].'"')?></li>
-          <li><?php tpl_actionlink('edit')?></li>
-          <li><?php tpl_actionlink('history')?></li>
-          <li><?php tpl_actionlink('recent')?></li>
-          <li><?php tpl_actionlink('index')?></li>
-        </ul>
-      </div>
-
-      <div class="bar-right" id="bar__topright">
-        <?php tpl_searchform()?>
+      <div class="bar" id="bar__top">
+        <div class="bar-left" id="bar__topleft">
+          <ul>
+            <li><?php tpl_link(wl(), 'Wiki', 'class="action" accesskey="h" rel="nofollow" title="'.$conf['title'].'"')?></li>
+            <li><?php tpl_actionlink('edit')?></li>
+            <li><?php tpl_actionlink('history')?></li>
+            <li><?php tpl_actionlink('recent')?></li>
+            <li><?php tpl_actionlink('index')?></li>
+          </ul>
+        </div>
+        <div class="bar-right" id="bar__topright">
+          <?php tpl_searchform()?>
+        </div>
       </div>
 
       <div class="clearer"></div>
-    </div>
 
-    <?php $translation = &plugin_load('helper','translation'); ?>
-    <?php if ($translation != NULL) { ?>
-    <div class="translation">
-      <?php echo $translation->showTranslations(); ?>
-      <?php tpl_link(wl('wiki:translation'), '?', 'class="action" rel="nofollow" title="Wiki Translation"')?>
-    </div>
-    <?php } ?>
+      <?php $translation = &plugin_load('helper','translation'); ?>
+      <?php if ($translation != NULL) { ?>
+      <div class="translation">
+        <?php echo $translation->showTranslations(); ?>
+        <?php tpl_link(wl('wiki:translation'), '?', 'class="action" rel="nofollow" title="Wiki Translation"')?>
+      </div>
+      <?php } ?>
 
-    <div class="breadcrumbs">
-      <?php $conf['youarehere'] = true; tpl_youarehere() ?>
-      <?php //tpl_youarehere() ?>
+      <div class="breadcrumbs">
+        <?php $conf['youarehere'] = true; tpl_youarehere() ?>
+        <?php //tpl_youarehere() ?>
+      </div>
+
     </div>
 
   </div>
