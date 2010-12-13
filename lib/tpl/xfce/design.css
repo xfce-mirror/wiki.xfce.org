@@ -11,7 +11,7 @@
 * { padding: 0; margin: 0; }
 
 body {
-  font: 90% Helvetica, Arial, sans-serif;
+  font: 68.75%/1.4545em Verdana, Helvetica, Arial, sans-serif;
   background-color: __background__;
   color: __text__;
 }
@@ -389,7 +389,7 @@ div.dokuwiki div.plugin_translation span {
 div.dokuwiki div.translation a.action {
   display: block;
   float: right;
-  padding: 0.2em;
+  padding: 0 0.2em;
   margin: 0 0.2em;
   font-weight: bold;
 }
@@ -663,10 +663,12 @@ div.dokuwiki ul.toc {
 
 div.dokuwiki ul.toc li.level1 > div.li span.li {
   font-weight: bold;
-  color: __meta2__;
+  color: __text_alt__;
 }
 div.dokuwiki ul.toc li.level1 > div.li span.li:before {
   content: "\25B6\2002";
+  font-size: 0.73em;
+  vertical-align: top;
 }
 
 div.dokuwiki ul.toc li.level1 > div.li {
@@ -680,7 +682,7 @@ div.dokuwiki ul.toc li.clear {
 
 div.dokuwiki a.toc:link,
 div.dokuwiki a.toc:visited {
-  color: __meta2__;
+  color: __text_alt__;
 }
 
 div.dokuwiki a.toc:hover,
