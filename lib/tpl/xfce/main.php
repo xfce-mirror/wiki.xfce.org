@@ -43,7 +43,7 @@ function __tpl_flush(){
 
 <div class="msgarea"><?php html_msgarea()?></div>
 
-<div role="logo" class="bottom-right-corner"></div>
+<div class="bottom-right-corner"></div>
 
 <div class="dokuwiki">
 
