@@ -1,66 +1,54 @@
 <style type="text/css">
-/*<!-- */
-div#xfce-header {
- background: #333 url(lib/tpl/xfce/images/logosmall.png) no-repeat 6px 55%;
- padding-left: 120px;
- color: #fff;
+#page-header {
+        /*border-bottom: 2px #69f solid;*/
+        background: #333 url('lib/tpl/xfce/images/logosmall.png') no-repeat 6px 55%;
+	padding-left: 120px;
+	min-height: 45px;
 }
-div#xfce-header div#xh-left-box {
- display: none;
- float: left;
- line-height: 50px;
+#page-header ul {
+	float: right ;
+	list-style: none;
+        margin: 0;
+        padding: 0 15px 0 0;
+        background: #333;
 }
-div#xfce-header div#xh-left-box h1 {
- padding: 0 0.6em;
- font-weight: normal;
- font-size: 200%;
- text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 3px;
+#page-header ul li {
+	float: left;
+        font-weight: bold;
+	margin: 0;
+	padding: 0;
 }
-div#xfce-header div#xh-right-box {
- float: right;
- margin-right: 15px;
- padding: 0;
+#page-header a {
+	color: #fff;
+        text-decoration: none;
+        display: block;
+        float: right;
+        padding: 0 15px 0 15px;
+        line-height: 4em;
 }
-div#xfce-header div#xh-right-box ul {
- list-style: none;
- display: inline;
- padding: 0;
- margin: 0; 
+#page-header ul li a:hover {
+	color: #69f;
 }
-div#xfce-header div#xh-right-box li {
- float: left;
+#page-header .active {
+        color: #69f;
 }
-div#xfce-header div#xh-right-box a {
- display: block;
- float: right;
- font-weight: bold;
- color: #fff;
- text-decoration: none;
- padding: 0 15px;
- line-height: 4em;
-}
-div#xfce-header div#xh-right-box a.active,
-div#xfce-header div#xh-right-box a:hover {
- color: #69f;
- text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
-}
-/* --> */
 </style>
 
-<div id="xfce-header">
-  <div id="xh-left-box"><h1>Xfce</h1></div>
-  <div id="xh-right-box">
+<div id="page-header">
+  <div>
+    <h1 style="display: none;">Xfce Wiki</h1>
+    <h5 style="display: none;">Sub domains</h5>
+    &nbsp;
     <ul>
-      <li><a href="http://www.xfce.org/" title="Go to the homepage">Home</a></li>
-      <li><a href="http://docs.xfce.org/" title="Official documentation">Docs</a></li>
-      <li><a href="http://wiki.xfce.org/" title="Community documentation" class="active">Wiki</a></li>
-      <li><a href="http://forum.xfce.org/" title="Community forums">Forum</a></li>
-      <li><a href="http://bugzilla.xfce.org/" title="Report and track bugs">Bugs</a></li>
-      <li><a href="http://blog.xfce.org/" title="Visit the blog">Blog</a></li>
-      <li><a href="http://translations.xfce.org/" title="Help translating the Xfce project">Translate</a></li>
-      <li><a href="http://git.xfce.org/" title="Project repositories">GIT</a></li>
+      <li><a href="http://www.xfce.org" title="Go to the homepage">Home</a></li>
+      <li><a href="http://docs.xfce.org" title="Official documentation">Docs</a></li>
+      <li><a href="http://wiki.xfce.org" title="Community documentation" class="active">Wiki</a></li>
+      <li><a href="http://forum.xfce.org" title="Community forums">Forum</a></li>
+      <li><a href="http://bugzilla.xfce.org" title="Report and track bugs">Bugs</a></li>
+      <li><a href="http://blog.xfce.org" title="Visit the blog">Blog</a></li>
+      <li><a href="http://translations.xfce.org" title="Help translating the Xfce project">Translate</a></li>
+      <li><a href="http://git.xfce.org" title="Project repositories">GIT</a></li>
     </ul>
   </div>
   <div style="clear: both;"></div>
 </div>
-
