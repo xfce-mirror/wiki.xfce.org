@@ -1,0 +1,257 @@
+/* ================================== BODY ================================== */
+html, body {
+	margin: 0;
+	padding: 0;
+}
+body { padding: 0 0.2em 0 0.2em; }
+body#media, body#mediaedit { padding:0; }
+
+.clearer {
+	clear: both;
+	padding-bottom: 20px;
+}
+/* ================================= HEADER ================================= */
+#header {
+	min-width: 540px;
+	height: 80px;
+}
+#headerprepend {
+	height: 80px;
+	width: 40px;
+	position: absolute;
+	top: 0;
+	left: 0.2em;
+}
+#headerappend {
+	height: 80px;
+	margin: 0 0 0 40px;
+}
+#userinfo {
+	position: absolute;
+	top: 32px;
+	right: 1.9em;
+}
+#logo {
+	position: absolute;
+	top: 5px;
+	left: 1.2em;
+	height: 60px;
+	width: 440px;
+}
+#logo img{
+	border: none;
+}
+#searchform {
+	position: absolute;
+	top: 5px;
+	right: 4em;
+}
+#searchform input {
+	padding: 1px 1px 1px 20px;
+	width: 10em;
+}
+#searchform .button {
+	padding: 0 3px 0 3px;
+	width: auto;
+	margin: 0 0 0 3px;
+}
+#qsearch__out {
+	display: none;
+	padding: 5px;
+	position: absolute;
+	right: 19em;
+	top: 0px;
+	width: 400px;
+	z-index: 500;
+}
+#qsearch__out ul{
+	display: block;
+	margin: 0;
+	padding-left: 1em;
+}
+#qsearch__out li {
+}
+/* =============================== NAVIGATION =============================== */
+#navigation {
+	position: absolute;
+	top: 50px;
+	right: 1.0em;
+}
+#navigation ul {
+	margin: 0;
+	padding: 0;
+}
+#navigation li {
+	display: inline;
+	margin: 0 1em 0 0;
+	padding: 0;
+}
+/* ================================= SIDEBAR ================================ */
+#sidebar {
+	width: __sidebar_width__;
+	position: absolute;
+	left: 0.2em;
+}
+/* ================================== MENU ================================== */
+.menu {
+	margin: 0;
+}
+.menutop, .menubottom {
+	height: 2em;
+}
+.menutop .prepend, .menubottom .prepend {
+	height: 2em;
+	width: 30px;
+	float: left;
+}
+.menutop .title {
+	margin: 0;
+	padding: .5em 0 0 0;
+}
+.menubody {
+	padding: .5em 15px .5em 2em;
+}
+.menu ul {
+	margin: 0 10px 0 10px;
+	padding: 0;
+}
+.menu li {
+	margin: 0;
+	padding: 0;
+}
+
+/* ================================ PAGEMAP ================================= */
+.pagemap .menubody { padding: .5em 15px .5em 1em; }
+.pagemap .toc { margin: 0; }
+.pagemap .level1 { margin: 0; }
+.pagemap .level2 { margin: 0 0 0 1.5em; }
+.pagemap .level3 { margin: 0 0 0 1.2em; }
+.pagemap .level4 { margin: 0 0 0 1.2em; }
+.pagemap .level5 { margin: 0 0 0 1.2em; }
+
+/* ================================= LINKS ================================== */
+#links { width: 17em; }
+#links ul { list-style: none; padding: 0; margin: 0 0 0 20px; }
+#links li { display: inline; }
+#links img { border: none; }
+
+/* ================================ CONTENT ================================= */
+#content{
+	margin: 0 0 0 __sidebar_width__;
+	width: auto;
+}
+#detail #content, #mediaref #content, #media #content, #mediaedit #content  { margin: 0; }
+#contenttop, #contentbottom {
+	height: 2em;
+}
+#contenttop .prepend, #contentbottom .prepend {
+	height: 2em;
+	width: 30px;
+	float: left;
+}
+#contenttop .commands {
+	margin: 0;
+	padding: .5em 0 0 0;
+}
+#contenttop .commands li {
+	display: inline;
+}
+
+#contentbody {
+	padding: .5em 15px .5em 15px;
+}
+#contentbody * {
+	zoom: 1; /* for IE */
+}
+
+
+/* ============================= CONTENT WIKI =============================== */
+/* ********* TOC ********* */
+#contentbody .toc{
+	display: none;
+}
+
+/* ********* EDIT ********* */
+#contentbody .secedit{
+	text-align: right;
+	padding: 0 5px 5px 5px;
+}
+#contentbody .secedit form{
+	margin: 0;
+}
+
+/* ********* HEADERS ********* */
+#contentbody h1 { 
+	margin: 1em 0 0 0;
+	padding: 1px 0 10px 15px;
+}
+#contentbody h2 { 
+	margin: 1em 1px 1px 2em;
+	padding: 1px 1px 5px 20px;
+}
+#contentbody h3 { 
+	margin: 1em 1px 0px 4em;
+	padding: 1px 1px 5px 20px;
+}
+#contentbody h4 { 
+	margin: 1em 1px 0px 6em;
+	padding: 1px 1px 5px 20px;
+}
+#contentbody h5 { 
+	margin: 1em 1px 0px 8em;
+	padding: 1px 1px 5px 20px;
+}
+
+/* ********* LEVELS ********* */
+#contentbody div.level1 { margin: 0 0 0 1em; }
+#contentbody div.level2 { 
+	margin: 1px 1px 0px 2em; 
+	padding: 1px 1px 1px 20px; 
+}
+#contentbody div.level3 { 
+	margin: 1px 1px 0px 4em; 
+	padding: 1px 1px 1px 20px; 
+}
+#contentbody div.level4 { 
+	margin: 1px 1px 0px 6em; 
+	padding: 1px 1px 1px 20px; 
+}
+#contentbody div.level5 { 
+	margin: 1px 1px 0px 8em; 
+	padding: 1px 1px 1px 20px; 
+}
+
+/* ********* LISTS ********* */
+#contentbody ul { margin:0 0 0 2em; padding: 0; }
+#contentbody li.level1, #contentbody li.level2, #contentbody li.level3, #contentbody li.level4, #contentbody li.level5 { margin: 0; padding: 0; }
+
+/* ********* IMAGES ********* */
+#contentbody img { border: none; }
+#contentbody img.media { margin: 3px; }
+#contentbody img.medialeft { float: left;  margin: 0 3px 0 0; }
+#contentbody img.mediaright { float: right; margin: 0 0 0 3px; }
+#contentbody img.mediacenter { display: block;  margin-left: auto;  margin-right: auto; }
+
+/* ********* TABLES ********* */
+#contentbody table {
+	margin: 5px 0 5px 0;
+	border-collapse: collapse;
+}
+#contentbody table th { padding: 2px 5px 2px 5px; }
+#contentbody table td { padding: 2px 5px 2px 5px; }
+#contentbody table td.rightalign { text-align: right; }
+#contentbody table td.centeralign { text-align: center; }
+#contentbody table td.leftalign { text-align: left; }
+
+/* ********* MEDIA ********* */
+#media { margin: 1em; }
+#media a img { border: none; }
+#media .mediaselect .mediaselect-left { float: left; width: 15em; }
+#media .mediaselect .mediaselect-left ul { margin: 0 0 0 10px; padding: 0; }
+#media .mediaselect .mediaselect-right { margin-left: 15em; padding: 5px; }
+#media .mediaselect .mediaselect-right ul { list-style: none; margin: 0; padding: 0; }
+#media .mediaselect .mediaselect-right ul li { padding: 5px; margin-bottom: 5px; }
+#media .mediaselect .mediaselect-right ul li .imagemeta { padding: 5px 0 0 0; margin: 5px 0 0 0; }
+#media label { display: block; }
+#mediaedit label { float: left; width: 8em; text-align: right; padding: 2px 5px 0 0; }
+#mediaedit .footer { margin-top: 1em; padding-top: 5px; }
