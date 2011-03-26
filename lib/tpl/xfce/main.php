@@ -34,7 +34,7 @@ function __tpl_flush(){
   <?php tpl_metaheaders()?>
 
   <link rel="shortcut icon" href="<?php echo DOKU_TPL?>images/favicon.png" />
-  <link rel="stylesheet" media="screen" type="text/css" href="/style/header.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="/_media/css/header.css" />
 </head>
 
 <body>
