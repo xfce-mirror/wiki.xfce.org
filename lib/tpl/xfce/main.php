@@ -130,7 +130,7 @@ function __tpl_flush(){
     <?php tpl_license(false);?>
 
     <div class="credit">
-      &copy; Xfce 2006-2010
+      &copy; Xfce 2006-<?php echo date('Y'); ?>
     </div>
 
   </div>
