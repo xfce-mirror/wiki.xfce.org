@@ -1,0 +1,42 @@
+/* this file is used in various xfce subdomains! */
+
+#xfce-header {
+	/*border-bottom: 2px #69f solid;*/
+	background: #333 url('images/logosmall.png') no-repeat 6px 55%;
+	padding-left: 120px;
+	min-height: 45px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+#xfce-header ul {
+	float: right;
+	list-style: none;
+	margin: 0;
+	padding: 0 10px 0 0;
+	background: #333;
+}
+#xfce-header ul li {
+	float: left;
+	font-weight: bold;
+	margin: 0;
+}
+#xfce-header a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	float: right;
+	padding: 0 10px 0 10px;
+	line-height: 4em;
+	border: 0;
+}
+#xfce-header ul li a:hover {
+	color: #69f;
+}
+#xfce-header .active {
+	color: #69f;
+}
+#xfce-header-clear {
+	clear: both;
+}
+#xfce-header-title, #xfce-header-subtitle {
+	display: none;
+}
