@@ -5,11 +5,6 @@ div.dokuwiki {
   cursor: default;
 }
 
-div.dokuwiki div {
-  margin: 0;
-  padding: 0;
-}
-
 div.dokuwiki div.page {
   background: #fff;
   padding: 1.2em 1.2em 0 1.2em;
