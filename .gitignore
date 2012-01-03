@@ -47,6 +47,7 @@ lib/plugins/popularity/
 lib/plugins/revert/
 lib/plugins/syntax.php
 lib/plugins/usermanager/
+lib/plugins/safefnrecode/
 lib/scripts/
 lib/styles/
 lib/tpl/default/
