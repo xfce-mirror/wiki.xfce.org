@@ -1,0 +1,42 @@
+div.dokuwiki .bar {
+  padding: 0.1em 0.15em;
+  clear: both;
+}
+div.dokuwiki .bar a {
+  text-decoration: none;
+}
+
+div.dokuwiki div.bar .button {
+  border: 0;
+  background: __background__;
+}
+
+div.dokuwiki .bar-left {
+  float: left;
+}
+
+div.dokuwiki .bar-right {
+  float: right;
+  text-align: right;
+}
+
+div.dokuwiki #bar__bottom {
+  margin-bottom: 3px;
+}
+
+/* ------------- File Metadata ----------------------- */
+
+div.dokuwiki div.meta {
+  clear: both;
+  margin-top: 1em;
+  color: __text_alt__;
+  font-size: 70%;
+}
+
+div.dokuwiki div.meta div.user {
+  float: left;
+}
+
+div.dokuwiki div.meta div.doc {
+  text-align: right;
+}

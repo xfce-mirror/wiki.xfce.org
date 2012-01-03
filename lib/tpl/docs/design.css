@@ -1,0 +1,208 @@
+div.dokuwiki {
+  margin:  0 auto 1em auto;
+  width: 90%;
+  max-width: 1000px;
+  cursor: default;
+}
+
+div.dokuwiki div {
+  margin: 0;
+  padding: 0;
+}
+
+div.dokuwiki div.page {
+  background: #fff;
+  padding: 1.2em 1.2em 0 1.2em;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+}
+
+div.dokuwiki div.page div.doc {
+  color: __border__;
+  text-align: right;
+  padding: 0.8em 0;
+}
+
+div.dokuwiki div.header {
+  margin-bottom: 6px;
+}
+
+div.dokuwiki div.breadcrumbs {
+  color: __text_neu__;
+  float: left;
+  margin-top: 0.5em;
+}
+
+div.dokuwiki div.translation {
+  float: right;
+  padding-left: 1em;
+}
+
+div.dokuwiki div.search {
+  float: right;
+}
+
+div.dokuwiki h1 {
+  margin-top: 0;
+  font-size: 1.44em;
+  border-bottom: solid 1px __border__;
+  color: __text_neu__;
+}
+
+div.dokuwiki h2, 
+div.dokuwiki h3, 
+div.dokuwiki h4 {
+  font-size: 1.2em;
+  border-bottom: solid 1px __border__;
+  margin-top: 2em;
+  color: __text_neu__;
+}
+
+div.dokuwiki div.secedit input.button {
+  cursor: pointer;
+  border: 1px solid __border__;
+  background: __background_c__;
+  float: right;
+}
+
+div.dokuwiki .section_highlight {
+  background: #dfd;
+}
+
+div.dokuwiki div.toc {
+  margin: 1.2em 0 0 2em;
+  float: right;
+  width: 200px;
+  font-size: 80%;
+  clear: both;
+}
+
+div.dokuwiki div.bar {
+  margin-top: 0.8em;
+}
+
+div.dokuwiki .bar input.button {
+  background: __background_c__;
+  border: 1px solid __border__;
+}
+
+div.dokuwiki .bar a {
+  text-decoration: none;
+}
+
+div.dokuwiki .bar-left {
+  float: left;
+}
+
+div.dokuwiki .bar-right {
+  float: right;
+  text-align: right;
+}
+
+div.dokuwiki table.inline {
+  background-color: __background__;
+  border: 1px solid __border__;
+  padding: 6px;
+  
+}
+
+div.dokuwiki table.inline img {
+  border: 1px solid __border__;
+  padding: 6px;
+  background-color: __background_c__;
+}
+
+div.dokuwiki .gui {
+  color: __text_neu__;
+}
+
+div.dokuwiki form {
+  border: none;
+  display: inline;
+}
+
+div.dokuwiki pre,
+div.dokuwiki code {
+  font-family: monospace, serif;
+  font-size: 100%;
+  background-color: __background__;
+}
+div.dokuwiki pre {
+  padding: 0.5em;
+  border: 1px dashed __border__;
+  color: __text__;
+  overflow: auto;
+}
+
+/* code blocks by indention */
+div.dokuwiki pre.pre {
+  background-color: __background__;
+}
+
+/* code blocks by code tag */
+div.dokuwiki pre.code {
+  background-color: __background__;
+}
+
+/* code blocks by file tag */
+div.dokuwiki pre.file {
+  background-color: __background__;
+}
+
+/* filenames for file and code blocks */
+div.dokuwiki dl.file,
+div.dokuwiki dl.code {
+    margin-top: 2em;
+    margin-bottom: 2.5em;
+}
+
+div.dokuwiki dt {
+  color: __text_neu__;
+  font-weight: normal;
+}
+div.dokuwiki dd {
+  margin-left: 20px;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+/* indent different sections */
+div.dokuwiki h1, div.dokuwiki div.level1 { margin-left: 0px; }
+div.dokuwiki h2, div.dokuwiki div.level2 { margin-left: 0px; }
+div.dokuwiki h3, div.dokuwiki div.level3 { margin-left: 20px; }
+div.dokuwiki h4, div.dokuwiki div.level4 { margin-left: 40px; }
+div.dokuwiki h5, div.dokuwiki div.level5 { margin-left: 60px; }
+
+div.dokuwiki a.urlextern:hover,
+div.dokuwiki a.urlextern:active,
+div.dokuwiki a.windows:hover,
+div.dokuwiki a.windows:active,
+div.dokuwiki a.wikilink1:hover,
+div.dokuwiki a.wikilink1:active,
+div.dokuwiki a.wikilink2:hover,
+div.dokuwiki a.wikilink2:active,
+div.dokuwiki a.interwiki:hover,
+div.dokuwiki a.interwiki:active {
+  color: __hover__;
+}
+
+div.dokuwiki a {
+  transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
+}
+
+/* existing wikipage */
+div.dokuwiki a.wikilink1 {
+  color: __existing__;
+  text-decoration: none !important;
+}
+
+/* not existing wikipage */
+div.dokuwiki a.wikilink2 {
+  color: __existing__;
+  text-decoration: none !important;
+  border-bottom: dashed 1px __missing__ !important;
+}
