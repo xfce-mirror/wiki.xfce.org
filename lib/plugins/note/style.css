@@ -1,0 +1,28 @@
+.noteclassic,
+.noteimportant,
+.notewarning,
+.notetip {
+  padding: 0.5em 40px 0.5em 40px;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+}
+
+.noteclassic {
+  border-color: #99d;
+  background-color: #ddf;
+}
+
+.noteimportant {
+  border-color: #ee0;
+  background-color: #ffd;
+}
+
+.notewarning {
+  border-color: #d99;
+  background-color: #fdd;
+}
+
+.notetip {
+  border-color: #9d9;
+  background-color: #dfd;
+}
