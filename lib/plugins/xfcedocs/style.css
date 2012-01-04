@@ -1,18 +1,17 @@
-div.dokuwiki div.figure {
+table.figure {
+  border: 1px solid __border__;
   background-color: __background__;
-  border: 1px solid __border__;
-  padding: 6px;
+  padding: 3px;
+  margin: auto;
+  width: 75%;
 }
-
-div.dokuwiki div.figure-title {
-  text-align: center;
+table.figure th {
   font-weight: bold;
-  padding-bottom: 6px;
-}
-
-div.dokuwiki div.figure-contents {
   text-align: center;
+}
+table.figure td {
   border: 1px solid __border__;
-  padding: 6px;
   background-color: __background_c__;
+  padding: 6px;
+  text-align: center;
 }

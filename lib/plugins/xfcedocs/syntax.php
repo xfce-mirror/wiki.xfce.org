@@ -112,15 +112,15 @@ class syntax_plugin_xfcedocs extends DokuWiki_Syntax_Plugin
             {
                 case DOKU_LEXER_ENTER:
                     if ($type == 'figure')
-                        $renderer->doc .= '<div class="figure"><div class="figure-title">'. 
-                                          $renderer->_xmlEntities($match) .'</div>'.
-                                          '<div class="figure-contents">';
+                        $renderer->doc .= '<table class="figure">'.
+                                          '<tr><th>'. $renderer->_xmlEntities($match) .'</th></tr>'.
+                                          '<tr><td>';
                     else
                         return false;
                     break;
                 
                 case DOKU_LEXER_EXIT :
-                    $renderer->doc .= '</div></div>';
+                    $renderer->doc .= '</td></tr></table>';
                     break;
                 
                 case DOKU_LEXER_UNMATCHED :
