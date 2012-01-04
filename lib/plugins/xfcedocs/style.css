@@ -1,0 +1,18 @@
+div.dokuwiki div.figure {
+  background-color: __background__;
+  border: 1px solid __border__;
+  padding: 6px;
+}
+
+div.dokuwiki div.figure-title {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 6px;
+}
+
+div.dokuwiki div.figure-contents {
+  text-align: center;
+  border: 1px solid __border__;
+  padding: 6px;
+  background-color: __background_c__;
+}
