@@ -29,7 +29,7 @@ if (!defined('DOKU_INC')) die();
 
   <?php tpl_metaheaders()?>
 
-  <link rel="shortcut icon" href="<?php echo tpl_getFavicon() ?>" />
+  <link rel="shortcut icon" href="/favicon.ico" />
 
     <script type="text/javascript">
     function slide(h) {
