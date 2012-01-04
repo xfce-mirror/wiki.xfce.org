@@ -13,3 +13,5 @@ $conf['translateui']   = 0;
 $conf['redirectstart'] = 0;
 $conf['checkage']      = 0;
 $conf['about']         = '';
+$conf['localabout']    = 0;
+$conf['display']       = 'langcode,title';
