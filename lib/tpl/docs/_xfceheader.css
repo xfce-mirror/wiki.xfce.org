@@ -1,7 +1,8 @@
 body {
   background-color: #eee;
   margin: 0;
-  font: 'Helvetica Neue Light', HelveticaNeue-Light, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue Light', HelveticaNeue-Light, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 #xfce-header {
   position: absolute;
