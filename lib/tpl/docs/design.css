@@ -29,11 +29,17 @@ div.notify {
   background-position: .5em 50%;
 }
 
+div.userinfo {
+  text-align: center;
+  font-size: 80%;
+  margin: .2em;
+}
+
 div.license {
   text-align: center;
   font-size: 80%;
   color: __text_other__;
-  margin: .5em;
+  margin: .2em;
 }
 
 div.license a {

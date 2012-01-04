@@ -135,7 +135,6 @@ if (!defined('DOKU_INC')) die();
       <?php tpl_button('revert')?>
     </div>
     <div class="bar-right" id="bar__bottomright">
-      <?php tpl_userinfo()?>
       <?php tpl_button('subscribe')?>
       <?php tpl_button('admin')?>
       <?php tpl_button('profile')?>
@@ -147,6 +146,7 @@ if (!defined('DOKU_INC')) die();
   </div>
 
   <?php tpl_flush()?>
+  <div class="userinfo"><?php tpl_userinfo()?></div>
   <?php tpl_license(false);?>
 </div>
 
