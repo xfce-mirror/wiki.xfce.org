@@ -212,6 +212,26 @@ div.dokuwiki h3, div.dokuwiki div.level3 { margin-left: 20px; }
 div.dokuwiki h4, div.dokuwiki div.level4 { margin-left: 40px; }
 div.dokuwiki h5, div.dokuwiki div.level5 { margin-left: 60px; }
 
+div.header a.wikilink1,
+div.header a.wikilink2,
+div.dokuwiki a.wikilink1,
+div.dokuwiki a.wikilink2,
+div.dokuwiki a.interwiki,
+div.dokuwiki a.urlextern,
+div.dokuwiki a.fn_bot,
+div.dokuwiki a.fn_top {
+  transition: color .2s linear;
+  -moz-transition: color .2s linear;
+  -webkit-transition: color .2s linear;
+  -o-transition: color .2s linear;
+  color: __existing__;
+  text-decoration: none !important;
+}
+
+div.header a.wikilink1:hover,
+div.header a.wikilink1:active,
+div.header a.wikilink2:hover,
+div.header a.wikilink2:active,
 div.dokuwiki a.urlextern:hover,
 div.dokuwiki a.urlextern:active,
 div.dokuwiki a.windows:hover,
@@ -221,15 +241,12 @@ div.dokuwiki a.wikilink1:active,
 div.dokuwiki a.wikilink2:hover,
 div.dokuwiki a.wikilink2:active,
 div.dokuwiki a.interwiki:hover,
-div.dokuwiki a.interwiki:active {
+div.dokuwiki a.interwiki:active,
+div.dokuwiki a.fn_bot:hover,
+div.dokuwiki a.fn_bot:active,
+div.dokuwiki a.fn_top:hover,
+div.dokuwiki a.fn_top:active {
   color: __hover__;
-}
-
-div.dokuwiki a {
-  transition: color .2s linear;
-  -moz-transition: color .2s linear;
-  -webkit-transition: color .2s linear;
-  -o-transition: color .2s linear;
 }
 
 div.dokuwiki a.urlextern {
@@ -237,15 +254,9 @@ div.dokuwiki a.urlextern {
   padding: 1px 0px 1px 16px;
 }
 
-/* existing wikipage */
-div.dokuwiki a.urlextern,
-div.dokuwiki a.wikilink1 {
-  color: __existing__;
-  text-decoration: none !important;
-}
-
 /* not existing wikipage */
-div.dokuwiki a.wikilink2 {
+div.dokuwiki a.wikilink2,
+div.header a.wikilink2 {
   color: __existing__;
   text-decoration: none !important;
   border-bottom: dashed 1px __missing__ !important;
