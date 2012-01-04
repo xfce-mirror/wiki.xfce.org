@@ -1,5 +1,7 @@
 body {
   background-color: #eee;
+  margin: 0;
+  font: 80% Verdana, Arial, Helvetica, sans-serif;
 }
 #xfce-header {
   position: absolute;

@@ -37,25 +37,25 @@ if (!defined('DOKU_INC')) die();
         o = window.pageYOffset;
       else if (document.body && document.body.scrollTop)
         o = document.body.scrollTop;
-      else if (document.documentElement 
+      else if (document.documentElement
                && document.documentElement.scrollTop)
         o = document.documentElement.scrollTop;
       else
         o = 0;
-   
+
       var min_offset = h.clientHeight - 5;
       if (o > min_offset)
         o = min_offset;
-    
+
       h.className = '';
       h.style.top = -o + "px";
-        
+
       return o;
     }
     window.onload = function (e) {
       var h = document.getElementById('xfce-header');
       var o = slide (h);
-      
+
       h.style.position = 'fixed';
       document.getElementById('xfce-header-spacer').style.height = h.clientHeight + 'px';
 
@@ -78,7 +78,7 @@ if (!defined('DOKU_INC')) die();
 <div>
   <h1>Xfce Desktop Enviroment</h1>
   <h4>Xfce subdomain navigation</h4>
-    
+
     <ul>
       <li><a href="http://www.xfce.org" title="Go to the homepage">Home</a></li>
       <li><a href="http://docs.xfce.org" title="Official documentation" class="active">Docs</a></li>
@@ -94,27 +94,28 @@ if (!defined('DOKU_INC')) die();
   <div  id="xfce-header-clear"></div>
 </div>
 <div id="xfce-header-spacer"></div>
+<?php html_msgarea()?>
+
+<div class="header">
+  <div class="breadcrumbs">
+    <?php tpl_youarehere() ?>
+  </div>
+  <div class="translation">
+    <?php $translation = &plugin_load('helper','translation'); ?>
+    <?php if ($translation != NULL) { ?>
+      <?php echo str_replace ('plugin_translation', '', $translation->showTranslations()) ?>
+    <?php } ?>
+  </div>
+  <div class="search">
+   <?php tpl_searchform()?>
+  </div>
+  <div class="clearer"></div>
+</div>
 
 <div class="dokuwiki" id="dokuwiki">
-  <?php html_msgarea()?>
-  <div class="header">
-    <div class="breadcrumbs">
-      <?php tpl_youarehere() ?>
-    </div>
-    <div class="translation">
-      <?php $translation = &plugin_load('helper','translation'); ?>
-      <?php if ($translation != NULL) { ?>
-        <?php echo $translation->showTranslations(); ?>
-      <?php } ?>
-    </div>
-    <div class="search">
-     <?php tpl_searchform()?>
-    </div>
-    <div class="clearer"></div>
-  </div>
-  
+
   <?php tpl_flush()?>
-  
+
   <div class="page">
     <!-- wikipage start -->
     <?php tpl_content()?>
@@ -124,7 +125,7 @@ if (!defined('DOKU_INC')) die();
       <?php tpl_pageinfo()?>
     </div>
   </div>
-  
+
   <div class="clearer"></div>
 
   <div class="bar" id="bar__bottom">
@@ -134,6 +135,7 @@ if (!defined('DOKU_INC')) die();
       <?php tpl_button('revert')?>
     </div>
     <div class="bar-right" id="bar__bottomright">
+      <?php tpl_userinfo()?>
       <?php tpl_button('subscribe')?>
       <?php tpl_button('admin')?>
       <?php tpl_button('profile')?>
@@ -144,24 +146,7 @@ if (!defined('DOKU_INC')) die();
     <div class="clearer"></div>
   </div>
 
-  
-
   <?php tpl_flush()?>
-  
-  
-
-
-  <div class="stylefoot">
-
-    <div class="meta">
-      <div class="user">
-        <?php tpl_userinfo()?>
-      </div>
-      
-    </div>
-
-    
-  </div>
   <?php tpl_license(false);?>
 </div>
 
