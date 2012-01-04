@@ -1,8 +1,9 @@
 div.header,
 div.dokuwiki {
   margin:  0 auto 1em auto;
-  width: 90%;
+  width: 95%;
   max-width: 1000px;
+  min-width: 650px;
   cursor: default;
 }
 
