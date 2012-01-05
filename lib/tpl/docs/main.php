@@ -133,6 +133,7 @@ if (!defined('DOKU_INC')) die();
       <?php tpl_button('edit')?>
       <?php tpl_button('history')?>
       <?php tpl_button('revert')?>
+      <?php tpl_button('recent')?>
     </div>
     <div class="bar-right" id="bar__bottomright">
       <?php tpl_button('subscribe')?>
