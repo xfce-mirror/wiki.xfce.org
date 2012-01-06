@@ -7,15 +7,16 @@ function get_value($name, $fallback = null)
   return $fallback;
 }
 
-/* Path to the dokuwiki data */
-$relpath = '/../domains/docs2.xfce.org/data/pages/';
-$root = realpath (dirname ($_SERVER['SCRIPT_FILENAME']) . $relpath);
-if (!is_dir ($root) || !chdir (($root)))
-    die ('Pages path is not properly configured');
-
 /* Subpaths in which components are expected */
 $subdirs = array ('xfce', 'apps', 'panel-plugins', 'thunar-plugins');
 $defpage = 'start';
+$domain  = 'docs2.xfce.org';
+
+/* Path to the dokuwiki data */
+$relpath = '/../domains/'.$domain.'/data/pages/';
+$root = realpath (dirname ($_SERVER['SCRIPT_FILENAME']) . $relpath);
+if (!is_dir ($root) || !chdir (($root)))
+    die ('Pages path is not properly configured');
 
 /* Get information about from the uri */
 //$version = get_value ('version');
@@ -98,6 +99,6 @@ if (!empty ($offset))
     $uri .= '#'.$offset;
 
 /* Redirect */
-header('Location: /'.$uri);
+header('Location: http://'.$domain.'/'.$uri);
 
 ?>
