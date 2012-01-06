@@ -25,11 +25,19 @@ $component = get_value ('component');
 $page = get_value ('page', $defpage);
 $offset = get_value ('offset');
 
+/* Fallback for xfce4-panel */
+if (empty ($component))
+    $component = get_value ('package');
+if (empty ($locale))
+    $locale = get_value ('lang');
+if (empty ($offset))
+    $offset = get_value ('anchor');
+
 /* Start uri */
 $uri = '';
 
 /* Find component */
-if ($component != null)
+if (!empty ($component))
 {
     foreach ($subdirs as $subdir)
     {
