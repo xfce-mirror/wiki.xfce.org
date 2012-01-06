@@ -10,7 +10,7 @@ function get_value($name, $fallback = null)
 /* Subpaths in which components are expected */
 $subdirs = array ('xfce', 'apps', 'panel-plugins', 'thunar-plugins');
 $defpage = 'start';
-$domain  = 'docs2.xfce.org';
+$domain  = 'docs.xfce.org';
 
 /* Path to the dokuwiki data */
 $relpath = '/../domains/'.$domain.'/data/pages/';
@@ -99,6 +99,9 @@ if (!empty ($offset))
     $uri .= '#'.$offset;
 
 /* Redirect */
-header('Location: http://'.$domain.'/'.$uri);
+if (isset ($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on")
+    header('Location: https://'.$domain.'/'.$uri);
+else
+    header('Location: http://'.$domain.'/'.$uri);
 
 ?>
