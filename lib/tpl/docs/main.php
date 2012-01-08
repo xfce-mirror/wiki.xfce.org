@@ -28,7 +28,7 @@ if (!defined('DOKU_INC')) die();
     [<?php echo strip_tags($conf['title'])?>]
   </title>
   <?php tpl_metaheaders()?>
-  <script type="text/javascript" src="/lib/tpl/docs/xfceheader.min.js"></script>
+  <script type="text/javascript" src="/lib/tpl/docs/xfceheader.js"></script>
 </head>
 
 <body>
