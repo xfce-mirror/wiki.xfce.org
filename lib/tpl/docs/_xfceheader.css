@@ -13,7 +13,7 @@ body {
   background-color: #333;
   z-index: 1000;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  background: #333 url('http://users.xfce.org/~nick/proposal/header/logosmall.png') no-repeat 3px 50%;
+  background: #333 url('images/logosmall.png') no-repeat 3px 50%;
 }
 #xfce-header h1, #xfce-header h4 {
   display: none;
