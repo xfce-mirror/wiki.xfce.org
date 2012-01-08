@@ -22,55 +22,13 @@ if (!defined('DOKU_INC')) die();
  lang="<?php echo $conf['lang']?>" dir="<?php echo $lang['direction']?>">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   <title>
     <?php tpl_pagetitle()?>
     [<?php echo strip_tags($conf['title'])?>]
   </title>
-
   <?php tpl_metaheaders()?>
-
-  <link rel="shortcut icon" href="/favicon.ico" />
-
-    <script type="text/javascript">
-    function slide(h) {
-      if (typeof (window.pageYOffset) == 'number')
-        o = window.pageYOffset;
-      else if (document.body && document.body.scrollTop)
-        o = document.body.scrollTop;
-      else if (document.documentElement
-               && document.documentElement.scrollTop)
-        o = document.documentElement.scrollTop;
-      else
-        o = 0;
-
-      var min_offset = h.clientHeight - 5;
-      if (o > min_offset)
-        o = min_offset;
-
-      h.className = '';
-      h.style.top = -o + "px";
-
-      return o;
-    }
-    window.onload = function (e) {
-      var h = document.getElementById('xfce-header');
-      var o = slide (h);
-
-      h.style.position = 'fixed';
-      document.getElementById('xfce-header-spacer').style.height = h.clientHeight + 'px';
-
-      window.onscroll = function (e) {
-        o = slide (h);
-      }
-      h.onmouseover = function (e) {
-        h.style.top = '0px';
-        h.className = 'slide';
-      }
-      h.onmouseout = function (e) {
-        h.style.top = -o + 'px';
-      }
-    }
-  </script>
+  <script type="text/javascript" src="/lib/tpl/docs/xfceheader.min.js"></script>
 </head>
 
 <body>
