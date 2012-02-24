@@ -1,67 +1,45 @@
-body {
-  background-color: #eee;
-  margin: 0;
-  font-family: 'Helvetica Neue Light', HelveticaNeue-Light, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-}
+/* this file is used in various xfce subdomains! */
+
 #xfce-header {
-  position: absolute;
-  color: #fff;
-  left: 0;
-  top: 0;
-  width: 100%;
-  background-color: #333;
-  z-index: 1000;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  background: #333 url('images/logosmall.png') no-repeat 3px 50%;
-}
-#xfce-header h1, #xfce-header h4 {
-  display: none;
-}
-#xfce-header div {
-  margin-left: 100px;
-}
-#xfce-header.slide {
-  transition: top 0.2s linear;
-  transition-delay: 0.2s;
-  -moz-transition: top 0.2s linear;
-  -moz-transition-delay: 0.2s;
-  -webkit-transition: top 0.2s linear;
-  -webkit-transition-delay: 0.2s;
-  -o-transition: top 0.2s linear;
-  -o-transition-delay: 0.2s;
+	background: #333 url('img/logosmall.png') no-repeat 3px 50%;
+	padding-left: 75px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+
+	font-family: 'Helvetica Neue Light', HelveticaNeue-Light, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
 }
 #xfce-header ul {
-  list-style: none;
-  float: right;
-  margin: 5px;
-  padding: 0;
-  line-height: 25px;
+	list-style: none;
+	float: right;
+	margin: 5px;
+	padding: 0;
 }
 #xfce-header ul li {
-  float: left;
+	float: left;
 }
 #xfce-header a {
-  color: #999;
-  text-decoration: none;
-  display: block;
-  padding: 0 8px 0 8px;
-  
-  transition: color 0.2s linear;
-  -moz-transition: color 0.2s linear;
-  -webkit-transition: color 0.2s linear;
-  -o-transition: color 0.2s linear;
+	color: #999;
+	text-decoration: none;
+	display: block;
+	padding: 0 8px 0 8px;
+	border: 0; /* for transifex */
+	line-height: 25px;
+
+	transition: color 0.2s linear;
+	-moz-transition: color 0.2s linear;
+	-webkit-transition: color 0.2s linear;
+	-o-transition: color 0.2s linear;
 }
 #xfce-header ul li a:hover {
-  color: #fff;
-  text-decoration: underline;
+	color: #fff;
+	text-decoration: underline;
 }
 #xfce-header .active {
-  color: #fff;
+	color: #fff;
 }
 #xfce-header-clear {
-  clear: both;
+	clear: both;
 }
-#xfce-header-spacer {
-  height: 35px; /* initial size, javascript corrects this */
+#xfce-header-title, #xfce-header-subtitle {
+	display: none;
 }

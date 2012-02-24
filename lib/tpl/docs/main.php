@@ -28,7 +28,6 @@ if (!defined('DOKU_INC')) die();
     [<?php echo strip_tags($conf['title'])?>]
   </title>
   <?php tpl_metaheaders()?>
-  <script type="text/javascript" src="/lib/tpl/docs/xfceheader.js"></script>
 </head>
 
 <body>
@@ -51,7 +50,6 @@ if (!defined('DOKU_INC')) die();
   </div>
   <div  id="xfce-header-clear"></div>
 </div>
-<div id="xfce-header-spacer"></div>
 <?php html_msgarea()?>
 
 <div class="header">
