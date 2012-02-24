@@ -1,7 +1,12 @@
-/* this file is used in various xfce subdomains! */
+body {
+  background-color: #eee;
+  margin: 0;
+  font-family: 'Helvetica Neue Light', HelveticaNeue-Light, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
 
 #xfce-header {
-	background: #333 url('img/logosmall.png') no-repeat 3px 50%;
+	background: #333 url('images/logosmall.png') no-repeat 3px 50%;
 	padding-left: 75px;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 

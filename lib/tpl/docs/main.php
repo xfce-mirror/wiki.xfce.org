@@ -33,8 +33,8 @@ if (!defined('DOKU_INC')) die();
 <body>
 <div id="xfce-header">
 <div>
-  <h1>Xfce Desktop Enviroment</h1>
-  <h4>Xfce subdomain navigation</h4>
+  <h1 id="xfce-header-title">Xfce Desktop Enviroment</h1>
+  <h4 id="xfce-header-subtitle">Xfce subdomain navigation</h4>
 
     <ul>
       <li><a href="http://www.xfce.org" title="Go to the homepage">Home</a></li>
