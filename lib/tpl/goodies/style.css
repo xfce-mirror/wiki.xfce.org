@@ -83,6 +83,7 @@ body {
 .menu a:hover { color: #ffb733; }
 
 /* ================================ PAGEMAP ================================= */
+#dw__toc { display: none; }
 .pagemap .menubody .toc .level1 { list-style: none; }
 .pagemap .menubody .toc .level1 a { color: #f4a600; font-weight: bold; }
 .pagemap .menubody .toc .level1 a:hover { color: #ffb733; }
