@@ -16,6 +16,8 @@
 }
 #xfce-header ul li {
 	float: left;
+	margin: 0;
+	padding: 0;
 }
 #xfce-header a {
 	color: #999;

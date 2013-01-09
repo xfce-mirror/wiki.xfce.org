@@ -1,84 +1,134 @@
 <?php
 /**
- * Xfce Wiki Template
+ * DokuWiki Image Detail Page
  *
- * This template is based on top of the default DokuWiki template.
- *
- * @author Mike Massonnet <andi@splitbrain.org>
+ * @author   Andreas Gohr <andi@splitbrain.org>
+ * @author   Anika Henke <anika@selfthinker.org>
+ * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
 
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang']?>" lang="<?php echo $conf['lang']?>" dir="ltr">
+?><!DOCTYPE html>
+<html lang="<?php echo $conf['lang']?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title><?php echo strip_tags($conf['title'])?> - <?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?></title>
-
-  <?php tpl_metaheaders()?>
-
-  <link rel="shortcut icon" href="<?php echo DOKU_TPL?>images/favicon.png" />
+    <meta charset="utf-8" />
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+    <title>
+        <?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?>
+        [<?php echo strip_tags($conf['title'])?>]
+    </title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <?php tpl_metaheaders()?>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
+    <?php tpl_includeFile('meta.html') ?>
 </head>
 
 <body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top"
+        class="dokuwiki site mode_<?php echo $ACT ?>">
 
-<div class="msgarea"><?php html_msgarea()?></div>
+        <?php include('tpl_header.php') ?>
 
-<div class="dokuwiki">
+        <div class="wrapper group" id="dokuwiki__detail">
 
-  <div class="page">
-    <?php if($ERROR){ print $ERROR; }else{ ?>
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
 
-    <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?></h1>
+                <?php if(!$ERROR): ?>
+                    <div class="pageId"><span><?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG)); ?></span></div>
+                <?php endif; ?>
 
-    <div class="img_big">
-      <?php tpl_img(900,700) ?>
-    </div>
+                <div class="page group">
+                    <?php tpl_flush() ?>
+                    <?php tpl_includeFile('pageheader.html') ?>
+                    <!-- detail start -->
+                    <?php
+                    if($ERROR):
+                        echo '<h1>'.$ERROR.'</h1>';
+                    else: ?>
 
-    <div class="img_detail">
-      <p class="img_caption">
-        <?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?>
-      </p>
+                        <h1><?php echo nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h1>
 
-      <p>&larr; <?php echo $lang['img_backto']?> <?php tpl_pagelink($ID)?></p>
+                        <?php tpl_img(900,700); /* parameters: maximum width, maximum height (and more) */ ?>
 
-      <dl class="img_tags">
-        <?php
-          $t = tpl_img_getTag('Date.EarliestTime');
-          if($t) print '<dt>'.$lang['img_date'].':</dt><dd>'.dformat($t).'</dd>';
+                        <div class="img_detail">
+                            <dl>
+                                <?php
+                                    // @todo: logic should be transferred to backend
+                                    $config_files = getConfigFiles('mediameta');
+                                    foreach ($config_files as $config_file) {
+                                        if(@file_exists($config_file)) {
+                                            include($config_file);
+                                        }
+                                    }
 
-          $t = tpl_img_getTag('File.Name');
-          if($t) print '<dt>'.$lang['img_fname'].':</dt><dd>'.hsc($t).'</dd>';
+                                    foreach($fields as $key => $tag){
+                                        $t = array();
+                                        if (!empty($tag[0])) {
+                                            $t = array($tag[0]);
+                                        }
+                                        if(is_array($tag[3])) {
+                                            $t = array_merge($t,$tag[3]);
+                                        }
+                                        $value = tpl_img_getTag($t);
+                                        if ($value) {
+                                            echo '<dt>'.$lang[$tag[1]].':</dt><dd>';
+                                            if ($tag[2] == 'date') {
+                                                echo dformat($value);
+                                            } else {
+                                                echo hsc($value);
+                                            }
+                                            echo '</dd>';
+                                        }
+                                    }
+                                ?>
+                            </dl>
+                        </div>
+                        <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw'));?>
+                    <?php endif; ?>
+                </div>
+                <!-- detail stop -->
+                <?php tpl_includeFile('pagefooter.html') ?>
+                <?php tpl_flush() ?>
 
-          $t = tpl_img_getTag(array('Iptc.Byline','Exif.TIFFArtist','Exif.Artist','Iptc.Credit'));
-          if($t) print '<dt>'.$lang['img_artist'].':</dt><dd>'.hsc($t).'</dd>';
+                <?php /* doesn't make sense like this; @todo: maybe add tpl_imginfo()?
+                <div class="docInfo"><?php tpl_pageinfo(); ?></div>
+                */ ?>
 
-          $t = tpl_img_getTag(array('Iptc.CopyrightNotice','Exif.TIFFCopyright','Exif.Copyright'));
-          if($t) print '<dt>'.$lang['img_copyr'].':</dt><dd>'.hsc($t).'</dd>';
+            </div></div><!-- /content -->
 
-          $t = tpl_img_getTag('File.Format');
-          if($t) print '<dt>'.$lang['img_format'].':</dt><dd>'.hsc($t).'</dd>';
+            <hr class="a11y" />
 
-          $t = tpl_img_getTag('File.NiceSize');
-          if($t) print '<dt>'.$lang['img_fsize'].':</dt><dd>'.hsc($t).'</dd>';
+            <!-- PAGE ACTIONS -->
+            <?php if (!$ERROR): ?>
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
+                    <div class="tools">
+                        <ul>
+                            <?php // View in media manager; @todo: transfer logic to backend
+                                $imgNS = getNS($IMG);
+                                $authNS = auth_quickaclcheck("$imgNS:*");
+                                if (($authNS >= AUTH_UPLOAD) && function_exists('media_managerURL')) {
+                                    $mmURL = media_managerURL(array('ns' => $imgNS, 'image' => $IMG));
+                                    echo '<li><a href="'.$mmURL.'" class="mediaManager"><span>'.$lang['img_manager'].'</span></a></li>';
+                                }
+                            ?>
+                            <?php // Back to [ID]; @todo: transfer logic to backend
+                                echo '<li><a href="'.wl($ID).'" class="back"><span>'.$lang['img_backto'].' '.$ID.'</span></a></li>';
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div><!-- /wrapper -->
 
-          $t = tpl_img_getTag('Simple.Camera');
-          if($t) print '<dt>'.$lang['img_camera'].':</dt><dd>'.hsc($t).'</dd>';
+        <?php include('tpl_footer.php') ?>
+    </div></div><!-- /site -->
 
-          $t = tpl_img_getTag(array('IPTC.Keywords','IPTC.Category','xmp.dc:subject'));
-          if($t) print '<dt>'.$lang['img_keywords'].':</dt><dd>'.hsc($t).'</dd>';
-
-        ?>
-      </dl>
-      <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw'));?>
-    </div>
-
-  <?php } ?>
-  </div>
-</div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
 </body>
 </html>
-

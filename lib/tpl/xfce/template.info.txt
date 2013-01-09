@@ -1,0 +1,7 @@
+base     dokuwiki
+author   Mike Massonnet
+email    mmassonnet@xfce.org
+date     2012-10-12
+name     Xfce
+desc     Xfce's default template since 2013
+url      http://git.xfce.org/www/wiki.xfce.org/
