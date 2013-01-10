@@ -126,7 +126,7 @@ dd {
     margin: 0 1.5em 0 0;
 }
 dt {
-    font-weight: bold;
+    font-weight: normal !important;
     margin: 0;
     padding: 0;
 }
