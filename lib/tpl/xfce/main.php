@@ -34,6 +34,9 @@ if (strstr(DOKU_URL, "wiki.xfce.org")) {
 else if (strstr(DOKU_URL, "docs.xfce.org")) {
     tpl_includeFile('xfce-header-docs-xfce-org.html');
 }
+else {
+    tpl_includeFile('xfce-header.html');
+}
 ?>
 
     <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
