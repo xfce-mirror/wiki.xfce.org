@@ -91,6 +91,7 @@ else {
                             tpl_action('revisions', 1, 'li', 0, '<span>', '</span>');
                             tpl_action('backlink',  1, 'li', 0, '<span>', '</span>');
                             tpl_action('subscribe', 1, 'li', 0, '<span>', '</span>');
+                            tpl_action('media',     1, 'li', 0, '<span>', '</span>');
                             tpl_action('top',       1, 'li', 0, '<span>', '</span>');
                         ?>
                     </ul>

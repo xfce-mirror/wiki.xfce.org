@@ -17,6 +17,7 @@ if (!defined('DOKU_INC')) die();
         <?php tpl_button('recent')?>
         <?php tpl_button('index')?>
         <?php tpl_button('revert')?>
+        <?php tpl_button('media')?>
       </div>
       <div class="bar-right">
         <?php tpl_button('subscribe')?>
