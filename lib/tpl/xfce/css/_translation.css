@@ -7,6 +7,10 @@ div.plugin_translation {
   font-size: 0.925em !important;
 }
 
+div.plugin_translation > span {
+  display: none;
+}
+
 div.plugin_translation select {
   background-color: transparent !important;
   color: #333 !important;
