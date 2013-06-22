@@ -1,9 +1,6 @@
 #
 # Ignore files from the default docuwiki installation.
 #
-
-.htaccess
-.htaccess.dist
 COPYING
 README
 VERSION
@@ -21,6 +18,8 @@ conf/mime.conf
 conf/msg
 conf/mysql.conf.php.example
 conf/scheme.conf
+conf/plugins.php
+conf/plugins.required.php
 conf/smileys.conf
 conf/users.auth.php
 conf/users.auth.php.dist
@@ -29,14 +28,22 @@ conf/words.aspell.dist
 data/
 doku.php
 feed.php
-inc/
 index.php
 install.php
+inc/
 lib/_fla/
 lib/exe/
 lib/images/
 lib/index.html
 lib/plugins/acl/
+lib/plugins/auth.php
+lib/plugins/authad/
+lib/plugins/authldap/
+lib/plugins/authmysql/
+lib/plugins/authpgsql/
+lib/plugins/authplain/
+lib/plugins/remote.php
+lib/plugins/testing/
 lib/plugins/action.php
 lib/plugins/admin.php
 lib/plugins/config/
@@ -51,4 +58,5 @@ lib/plugins/safefnrecode/
 lib/scripts/
 lib/styles/
 lib/tpl/default/
+lib/tpl/dokuwiki/
 lib/tpl/index.php
