@@ -19,7 +19,7 @@ if (!is_dir ($root) || !chdir (($root)))
     die ('Pages path is not properly configured');
 
 /* Get information about from the uri */
-//$version = get_value ('version');
+$version = get_value ('version');
 $locale = get_value ('locale');
 $component = get_value ('component');
 $page = get_value ('page', $defpage);
@@ -42,7 +42,13 @@ if (!empty ($component))
     foreach ($subdirs as $subdir)
     {
         $path = $subdir.'/'.$component.'/';
-        if (is_dir ($path))
+        $version_path = $path.$version.'/';
+        if (is_dir ($version_path))
+        {
+            $uri = $version_path;
+            break;
+        }
+        elseif (is_dir ($path))
         {
             $uri = $path;
             break;
