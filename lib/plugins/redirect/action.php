@@ -17,7 +17,7 @@ class action_plugin_redirect extends DokuWiki_Action_Plugin {
     /**
      * register the eventhandlers
      */
-    function register(&$controller){
+    function register(Doku_Event_Handler $controller){
         $controller->register_hook('DOKUWIKI_STARTED',
                                    'AFTER',
                                    $this,
@@ -42,7 +42,8 @@ class action_plugin_redirect extends DokuWiki_Action_Plugin {
                 if($this->getConf('showmsg')){
                     msg(sprintf($this->getLang('redirected'),hsc($ID)));
                 }
-                send_redirect(wl($redirects[$ID] ,'',true));
+                $link = explode('#', $redirects[$ID], 2);
+                send_redirect(wl($link[0] ,'',true) . '#' . rawurlencode($link[1]));
             }
             exit;
         }
