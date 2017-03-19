@@ -1,0 +1,30 @@
+table.loglog {
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+table.loglog span {
+    padding-left: 20px;
+}
+
+
+table.loglog span.loglog_off {
+    background: transparent url(pix/off.png) left center no-repeat;
+}
+
+table.loglog span.loglog_perm {
+    background: transparent url(pix/perm.png) left center no-repeat;
+}
+
+table.loglog span.loglog_temp {
+    background: transparent url(pix/temp.png) left center no-repeat;
+}
+
+table.loglog span.loglog_fail {
+    background: transparent url(pix/error.png) left center no-repeat;
+}
+
+
+
+
