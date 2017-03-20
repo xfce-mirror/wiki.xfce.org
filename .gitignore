@@ -47,12 +47,15 @@ lib/plugins/testing/
 lib/plugins/action.php
 lib/plugins/admin.php
 lib/plugins/config/
+lib/plugins/extension/
 lib/plugins/index.html
 lib/plugins/info/
 lib/plugins/plugin/
 lib/plugins/popularity/
 lib/plugins/revert/
+lib/plugins/styling/
 lib/plugins/syntax.php
+lib/plugins/upgrade/
 lib/plugins/usermanager/
 lib/plugins/safefnrecode/
 lib/scripts/
@@ -60,3 +63,4 @@ lib/styles/
 lib/tpl/default/
 lib/tpl/dokuwiki/
 lib/tpl/index.php
+vendor/
