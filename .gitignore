@@ -1,6 +1,7 @@
 #
-# Ignore files from the default docuwiki installation.
+# Ignore files from the default dokuwiki installation.
 #
+.htaccess.dist
 COPYING
 README
 VERSION
@@ -18,6 +19,7 @@ conf/mime.conf
 conf/msg
 conf/mysql.conf.php.example
 conf/scheme.conf
+conf/plugins.local.php
 conf/plugins.php
 conf/plugins.required.php
 conf/smileys.conf
@@ -42,6 +44,7 @@ lib/plugins/authldap/
 lib/plugins/authmysql/
 lib/plugins/authpgsql/
 lib/plugins/authplain/
+lib/plugins/authpdo/
 lib/plugins/remote.php
 lib/plugins/testing/
 lib/plugins/action.php
