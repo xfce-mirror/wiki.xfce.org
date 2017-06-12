@@ -23,6 +23,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
+	<link rel="stylesheet" media="screen" href="https://www.xfce.org/style/css.php?site=wiki" type="text/css" />
 </head>
 
 <body>
@@ -37,73 +38,69 @@ else if (strstr(DOKU_URL, "docs.xfce.org")) {
 else {
     tpl_includeFile('xfce-header.html');
 }
+
 ?>
-
     <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
-    <div id="dokuwiki__site"><div id="dokuwiki__top"
-        class="dokuwiki site mode_<?php echo $ACT ?> <?php echo ($showSidebar) ? 'showSidebar' : '';
-        ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
-        <?php include('tpl_header.php') ?>
+	<?php include('tpl_header.php') ?>
 
-        <div class="wrapper group">
+	<div id="dokuwiki__top"></div>
+	<div id="main" class="dokuwiki site mode_<?php echo $ACT ?>">
 
-            <?php if($showSidebar): ?>
-                <!-- ********** ASIDE ********** -->
-                <div id="dokuwiki__aside"><div class="pad include group">
-                    <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
-                    <div class="content">
-                        <?php tpl_flush() ?>
-                        <?php tpl_includeFile('sidebarheader.html') ?>
-                        <?php tpl_include_page($conf['sidebar'], 1, 1) ?>
-                        <?php tpl_includeFile('sidebarfooter.html') ?>
-                    </div>
-                </div></div><!-- /aside -->
-            <?php endif; ?>
+		<div id="content">
+			<div id="article" class="page group">
+				<?php html_msgarea() ?>
 
-            <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content"><div class="pad group">
+				<?php tpl_flush() ?>
+				<?php tpl_includeFile('pageheader.html') ?>
+				<!-- wikipage start -->
+				<?php tpl_content(false) ?>
+				<!-- wikipage stop -->
+				<?php tpl_includeFile('pagefooter.html') ?>
+				<?php tpl_flush() ?>
+			</div>
+			<!-- In order to be able to use :empty, we will need to keep the following and the closing if tag and div tags on the same line -->
+			<div id="related">
+				<?php tpl_toc() ?>
 
-                <div class="page group">
-                    <?php tpl_flush() ?>
-                    <?php tpl_includeFile('pageheader.html') ?>
-                    <!-- wikipage start -->
-                    <?php tpl_content() ?>
-                    <!-- wikipage stop -->
-                    <?php tpl_includeFile('pagefooter.html') ?>
-                </div>
+				<h2>Tools</h2>
+				<p><?php tpl_searchform(); ?></p>
 
-                <div class="docInfo"><?php tpl_pageinfo() ?></div>
+				<ul>
+					<?php
+						tpl_action('edit',      1, 'li', 0, '<span>', '</span>');
+						tpl_action('revert',    1, 'li', 0, '<span>', '</span>');
+						tpl_action('revisions', 1, 'li', 0, '<span>', '</span>');
+						tpl_action('backlink',  1, 'li', 0, '<span>', '</span>');
+						tpl_action('subscribe', 1, 'li', 0, '<span>', '</span>');
+						tpl_action('media',     1, 'li', 0, '<span>', '</span>');
+						tpl_action('top',       1, 'li', 0, '<span>', '</span>');
+					?>
+				</ul>
 
-                <?php tpl_flush() ?>
-            </div></div><!-- /content -->
 
-            <hr class="a11y" />
+				<!-- ********** ASIDE ********** -->
+				<?php if($showSidebar): ?>
+					<div id="dokuwiki__aside"><div class="pad include group">
+						<h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
+							<div class="content">
+								<?php tpl_flush() ?>
+								<?php tpl_includeFile('sidebarheader.html') ?>
+								<?php tpl_include_page($conf['sidebar'], 1, 1) ?>
+								<?php tpl_includeFile('sidebarfooter.html') ?>
+							</div>
+					</div></div><!-- /aside -->
+	         <?php endif; ?></div>
+		</div>
 
-            <!-- PAGE ACTIONS -->
-            <div id="dokuwiki__pagetools">
-                <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
-                <div class="tools">
-                    <ul>
-                        <?php
-                            tpl_action('edit',      1, 'li', 0, '<span>', '</span>');
-                            tpl_action('revert',    1, 'li', 0, '<span>', '</span>');
-                            tpl_action('revisions', 1, 'li', 0, '<span>', '</span>');
-                            tpl_action('backlink',  1, 'li', 0, '<span>', '</span>');
-                            tpl_action('subscribe', 1, 'li', 0, '<span>', '</span>');
-                            tpl_action('media',     1, 'li', 0, '<span>', '</span>');
-                            tpl_action('top',       1, 'li', 0, '<span>', '</span>');
-                        ?>
-                    </ul>
-                </div>
-            </div>
-        </div><!-- /wrapper -->
-
-        <?php include('tpl_footer.php') ?>
-    </div></div><!-- /site -->
+	</div>
+	<div id="footer" class="main_width">
+		<?php include('tpl_footer.php') ?>
+	</div>
+<!--            <hr class="a11y" /> -->
 
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
     <div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
-    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+	<!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
 </body>
 </html>
