@@ -78,6 +78,7 @@ else {
 					?>
 				</ul>
 
+				<p><?php tpl_pageinfo() ?></p>
 
 				<!-- ********** ASIDE ********** -->
 				<?php if($showSidebar): ?>
