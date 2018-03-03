@@ -23,7 +23,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
-	<link rel="stylesheet" media="screen" href="https://www.xfce.org/style/css.php?site=wiki" type="text/css" />
+	<link rel="stylesheet" media="screen" href="https://xfce.org/style/css.php?site=wiki" type="text/css" />
 </head>
 
 <body>
