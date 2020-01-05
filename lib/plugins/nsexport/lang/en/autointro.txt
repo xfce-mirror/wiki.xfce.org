@@ -1,0 +1,3 @@
+====== Namespace Export ======
+
+This tool exports all pages in the current namespace (and below). Mediafiles like images or documents used in the exported pages will be exported as well. Depending on the amount of exported data, the generation can take a while, please be patient.
