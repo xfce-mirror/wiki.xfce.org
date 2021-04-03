@@ -1,44 +1,44 @@
 .plugin_note {
-  margin: 2em auto;
-  max-width: 70%;
+  margin: 2em 0;
+  max-width: 100%;
   min-height: 40px;
   text-align: justify;
   vertical-align: middle;
   border-collapse: collapse;
-  padding: 15px 20px 15px 80px;
+  padding: 5px 20px 5px 80px;
   background-position: 20px 50%;
   background-repeat: no-repeat;
   -moz-border-radius: 20px;
   -khtml-border-radius: 20px;
-  border-radius: 6px;
+  border-radius: 20px;
   color: black;
   overflow: hidden;
 }
 
 .plugin_note .li {
- color: black !important;
+  color: black !important;
 }
-
+ 
 .noteclassic {
-  /*border: 1px solid #99D;*/
-  background-color: #e8f5ff;
+  border: 1px solid #99D;
+  background-color: #eeeeff;
   background-image: url(images/note.png);
 }
  
 .noteimportant {
-  /*border: 1px solid #ff0;*/
+  border: 1px solid #ff0;
   background-color: #ffffcc;
   background-image: url(images/important.png);
 }
  
 .notewarning {
-  /*border: 1px solid #d99;*/
-  background-color: #f4c9d0;
+  border: 1px solid #d99;
+  background-color: #ffdddd;
   background-image: url(images/warning.png);
 }
  
 .notetip {
-  /*border: 1px solid #9d9;*/
+  border: 1px solid #9d9;
   background-color: #ddffdd;
   background-image: url(images/tip.png);
 }
