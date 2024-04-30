@@ -1,7 +1,7 @@
 base   note
-author Olivier Cortès, Eric Hameleers, Christopher Smith, Aurélien Bompard, LarsDW223
-email  olive@deep-ocean.net
-date   2020-06-28
+author Anael Mobilia
+email  contrib@anael.eu
+date   2024-04-15
 name   Note Plugin
 desc   Add Note/Important/Tip/Warning Capability (DIV+CSS box)
 url    https://www.dokuwiki.org/plugin:note

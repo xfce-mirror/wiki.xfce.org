@@ -4,6 +4,9 @@
  *
  * @license GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
+
+use dokuwiki\File\PageResolver;
+
 if(!defined('DOKU_INC')) die();
 require_once 'filePreparer.php';
 
@@ -39,10 +42,12 @@ class namespacePreparer extends filePreparer {
     }
 
     private function getMainPageId(&$ns){
-        if (is_null($ns['idMainPage'])){
+        if (!array_key_exists('idMainPage', $ns)){
             $idMainPage = $ns['id'].':';
-            resolve_pageid('', $idMainPage, $exist); //get the id of the main page of the ns
-            $ns['idMainPage'] = $exist ? $idMainPage : null;
+            // Get the id of the namespace's main page
+            $resolver = new PageResolver($idMainPage);
+            $page = $resolver->resolveId($idMainPage);
+            $ns['idMainPage'] = page_exists($page) ? $page : null;
         }
         return $ns['idMainPage'];
     }

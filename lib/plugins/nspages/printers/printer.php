@@ -52,9 +52,17 @@ abstract class nspages_printer {
     abstract function _print($tab, $type);
 
     function printUnusableNamespace($wantedNS){
-         $this->renderer->section_open(1);
-         $this->renderer->cdata($this->plugin->getLang('doesntexist').$wantedNS);
-         $this->renderer->section_close();
+        $this->printError($this->plugin->getLang('doesntexist').$wantedNS);
+    }
+
+    function printErrorSidebarDoestAcceptNamespace($wantedNS){
+        $this->printError($this->plugin->getLang('sidebarOrNs').$wantedNS);
+    }
+
+    private function printError($errorMessage){
+        $this->renderer->section_open(1);
+        $this->renderer->cdata($errorMessage);
+        $this->renderer->section_close();
     }
 
     private function _printHeader(&$tab, $type, $text, $hideno) {
@@ -103,22 +111,19 @@ abstract class nspages_printer {
 
     /**
      * @param Array        $item      Represents the file
+     * @param bool $node true when a node; false when a leaf
      */
-    protected function _printElement($item, $level=1, $node=false) {
-        $this->_printElementOpen($level, $node);
+    protected function _printElement($item, $level=1) {
+        $this->_printElementOpen($item, $level);
         $this->_printElementContent($item, $level);
         $this->_printElementClose();
     }
 
-    protected function _printElementOpen($level=1, $node=false) {
-        if($item['type'] !== 'd') {
-            $this->renderer->listitem_open($level, $node);
+    protected function _printElementOpen($item, $level) {
+        if($item == null || $item['type'] !== 'd') {
+            $this->renderer->listitem_open($level, false);
         } else { //Case of a subnamespace
-            if($this->mode == 'xhtml') {
-                $this->renderer->doc .= '<li class="closed">';
-            } else {
-                $this->renderer->listitem_open($level, $node);
-            }
+          $this->renderer->listitem_open($level, true);
         }
     }
 

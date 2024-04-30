@@ -16,15 +16,16 @@ class namespaceFinder {
         $this->sanitizeNs();
     }
 
-    private function computeWantedNs($path){
+    private function computeWantedNs($wantedNS){
         global $ID;
         $result = '';
-        $wantedNS = trim($path);
         if($wantedNS == '') {
             $wantedNS = $this->getCurrentNamespace();
         }
         if( $this->isRelativePath($wantedNS) ) {
             $result = getNS($ID);
+            // normalize initial dots ( ..:..abc -> ..:..:abc )
+            $wantedNS = preg_replace('/^((\.+:)*)(\.+)(?=[^:\.])/', '\1\3:', $wantedNS);
         }
         $result .= ':'.$wantedNS.':';
         return $result;
@@ -61,7 +62,7 @@ class namespaceFinder {
             }
         }
 
-        $this->isSafe = ($ns[0] != '..');
+        $this->isSafe = (count($ns) == 0 || $ns[0] != '..');
         $this->wantedNs = implode(':', $ns);
     }
 
@@ -74,6 +75,10 @@ class namespaceFinder {
     }
 
     function getWantedDirectory(){
-        return utf8_encodeFN(str_replace(':', '/', $this->wantedNs));
+        return $this->namespaceToDirectory($this->wantedNs);
+    }
+
+    static function namespaceToDirectory($ns){
+        return utf8_encodeFN(str_replace(':', '/', $ns));
     }
 }

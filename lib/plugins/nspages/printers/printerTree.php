@@ -169,7 +169,7 @@ class nspages_printerTree extends nspages_printer {
     }
 
     private function _printSubTree($tree, $level) {
-        $this->_printElementOpen($level);
+        $this->_printElementOpen($tree->self, $level);
         if ( !is_null($tree->self) ){
             $this->_printElementContent($tree->self, $level);
         } else {
@@ -210,7 +210,7 @@ class NspagesTreeNsNode implements ArrayAccess {
     /**
      * The data about the current namespace iteslf. It may be empty in two cases:
      * - when nspages is displaying only pages (because in that case we did not search for ns)
-     * - when this instance represent the root of the tree (because nspages doesn't display it)
+     * - when this instance represents the root of the tree (because nspages doesn't display it)
      */
     public $self = null;
 
@@ -236,9 +236,11 @@ class NspagesTreeNsNode implements ArrayAccess {
         return $offset == "sort";
     }
     public function offsetUnset($offset) {
-        unset($this->container[$offset]);
+        throw new BadMethodCallException("Not implemented by design");
     }
     public function offsetGet($offset) {
-        return $this->offsetExists($offset) ? $this->self["sort"] : null;
+      return is_null($this->self) ?
+            $this->id :
+            $this->self["sort"];
     }
 }

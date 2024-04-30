@@ -10,18 +10,18 @@
   background-repeat: no-repeat;
   -moz-border-radius: 20px;
   -khtml-border-radius: 20px;
-  border-radius: 6px;
+  border-radius: 20px;
   color: black;
   overflow: hidden;
 }
 
 .plugin_note .li {
- color: black !important;
+  color: black !important;
 }
-
+ 
 .noteclassic {
   /*border: 1px solid #99D;*/
-  background-color: #e8f5ff;
+  background-color: #eeeeff;
   background-image: url(images/note.png);
 }
  
@@ -33,7 +33,7 @@
  
 .notewarning {
   /*border: 1px solid #d99;*/
-  background-color: #f4c9d0;
+  background-color: #ffdddd;
   background-image: url(images/warning.png);
 }
  

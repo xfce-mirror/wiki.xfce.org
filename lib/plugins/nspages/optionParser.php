@@ -5,6 +5,9 @@
  * @license GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author  Guillaume Turri <guillaume.turri@gmail.com>
  */
+
+use dokuwiki\Utf8\PhpString;
+
 if(!defined('DOKU_INC')) die();
 
 class optionParser {
@@ -121,22 +124,32 @@ class optionParser {
     }
 
     private static function _addListOfItemsToExclude($excludeList, &$excludedPages, &$excludedNs) {
-       foreach($excludeList as $exclude) {
-           if($exclude[strlen($exclude) - 1] === ':') { //not utf8_strlen() on purpose
-               $excludedNs[] = utf8_substr($exclude, 0, -1);
-           } else {
-               $excludedPages[] = $exclude;
-           }
+        foreach($excludeList as $exclude) {
+            $exclude = trim($exclude);
+            if ($exclude === "") {
+                return;
+            }
+            if($exclude[-1] === ':') {
+                $excludedNs[] = PhpString::substr($exclude, 0, -1);
+            } else {
+                $excludedPages[] = $exclude;
+            }
        }
     }
 
     static function checkActualTitle(&$match, &$varAffected){
+        $foundOption = false;
         if ( optionParser::preg_match_wrapper("actualTitle *= *([[:digit:]])", $match, $found) ){
             $varAffected = $found[1];
+            $foundOption = true;
         } else if ( optionParser::preg_match_wrapper("actualTitle", $match, $found) ){
             $varAffected = 2;
+            $foundOption = true;
         }
-        $match = optionParser::_removeFromMatch($found[0], $match);
+
+        if ($foundOption) {
+            $match = optionParser::_removeFromMatch($found[0], $match);
+        }
     }
 
     static private function preg_match_wrapper($pattern, $subject, &$matches){
@@ -149,6 +162,8 @@ class optionParser {
 
     static private function _removeFromMatch($matched, $match){
         $matched = trim($matched); // to handle the case of the option "-r" which already matches an extra whitespace
-        return substr(str_replace($matched.' ', ' ', $match.' '), 0, -1);
+        // Matched option including any leading and at least one trailing whitespace
+        $regex = '/\s*' . preg_quote($matched, '/') . '\s+/';
+        return preg_replace($regex, ' ', $match);
     }
 }

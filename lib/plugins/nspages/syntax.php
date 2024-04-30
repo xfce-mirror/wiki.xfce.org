@@ -9,6 +9,9 @@
  * @author  Andreas Gohr <gohr@cosmocode.de>
  * @author  Ghassem Tofighi <ghassem@gmail.com>
  */
+
+use dokuwiki\Utf8\PhpString;
+
 if(!defined('DOKU_INC')) die();
 require_once 'printers/printerLineBreak.php';
 require_once 'printers/printerOneLine.php';
@@ -42,7 +45,7 @@ class syntax_plugin_nspages extends DokuWiki_Syntax_Plugin {
         $return = $this->_getDefaultOptions();
         $return['pos'] = $pos;
 
-        $match = utf8_substr($match, 8, -1); //9 = strlen("<nspages")
+        $match = PhpString::substr($match, 8, -1); //9 = strlen("<nspages")
         $match .= ' ';
 
         optionParser::checkOption($match, "subns", $return['subns'], true);
@@ -68,6 +71,7 @@ class syntax_plugin_nspages extends DokuWiki_Syntax_Plugin {
         optionParser::checkOption($match, "(modification)?Dates?OnPictures?", $return['modificationDateOnPictures'], true);
         optionParser::checkOption($match, "displayModificationDates?", $return["displayModificationDate"], true);
         optionParser::checkOption($match, "includeItemsInTOC", $return["includeItemsInTOC"], true);
+        optionParser::checkOption($match, "sidebar", $return["sidebar"], true);
         optionParser::checkRecurse($match, $return['maxDepth']);
         optionParser::checkNbColumns($match, $return['nbCol']);
         optionParser::checkSimpleStringArgument($match, $return['textPages'], $this, 'textPages');
@@ -91,10 +95,16 @@ class syntax_plugin_nspages extends DokuWiki_Syntax_Plugin {
         optionParser::checkSimpleStringArgument($match, $return['defaultPicture'], $this, 'defaultPicture');
 
         //Now, only the wanted namespace remains in $match
-        $nsFinder = new namespaceFinder($match);
-        $return['wantedNS'] = $nsFinder->getWantedNs();
-        $return['safe'] = $nsFinder->isNsSafe();
-        $return['wantedDir'] = $nsFinder->getWantedDirectory();
+        $match = strtolower(trim($match));
+        if ($return["sidebar"]) {
+            // Don't bother resolving or sanitizing now: it will be done at render-time in this mode
+            $return['wantedNS'] = $match;
+        } else {
+            $nsFinder = new namespaceFinder($match);
+            $return['wantedNS'] = $nsFinder->getWantedNs();
+            $return['safe'] = $nsFinder->isNsSafe();
+            $return['wantedDir'] = $nsFinder->getWantedDirectory();
+        }
 
         return $return;
     }
@@ -119,7 +129,7 @@ class syntax_plugin_nspages extends DokuWiki_Syntax_Plugin {
             'modificationDateOnPictures' => false,
             'displayModificationDate' => false,
             'sortByCreationDate' => false, 'defaultPicture' => null, 'tree' => false,
-            'includeItemsInTOC' => false
+            'includeItemsInTOC' => false, 'sidebar' => false,
         );
     }
 
@@ -136,6 +146,24 @@ class syntax_plugin_nspages extends DokuWiki_Syntax_Plugin {
         $this->_denullifyLangOptions($data);
         $this->_denullifyPictureOptions($data);
         $printer = $this->_selectPrinter($mode, $renderer, $data);
+
+        if ($data['sidebar']) {
+            if ($data['wantedNS'] !== '') {
+                $printer->printErrorSidebarDoestAcceptNamespace($data['wantedNS']);
+                return TRUE;
+            }
+            if ($mode === "metadata") {
+                // In this case $INFO is null so there is not much we can do,
+                // but anyway in "sidebar" mode we're not really going to generate metadata of the current page
+                // so it rather makes sense to exiting without printing anything.
+                return TRUE;
+            }
+            global $INFO;
+            $data['wantedNS'] = $INFO['namespace'];
+            $data['safe'] = true;
+            $data['wantedDir'] = namespaceFinder::namespaceToDirectory($data['wantedNS']);
+        }
+
 
         if( ! $this->_isNamespaceUsable($data)){
             $printer->printUnusableNamespace($data['wantedNS']);
