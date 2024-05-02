@@ -24,7 +24,7 @@ if (!defined('DOKU_INC')) die();
 
 	<div class="tools">
 		<div class="mobileTools">
-			<?php tpl_actiondropdown($lang['tools']); ?>
+                        <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
 		</div>
 		<?php $translation = &plugin_load('helper','translation'); ?>
 		<?php if ($translation != NULL) : ?>

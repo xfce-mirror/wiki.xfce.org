@@ -10,19 +10,11 @@ if (!defined('DOKU_INC')) die();
 <!-- ********** FOOTER ********** -->
 <div class="bars">
 	<div class="bar-left">
-		<?php tpl_button('edit')?>
-		<?php tpl_button('history')?>
-		<?php tpl_button('recent')?>
-		<?php tpl_button('index')?>
-		<?php tpl_button('revert')?>
-		<?php tpl_button('media')?>
+		<?php echo (new \dokuwiki\Menu\PageMenu())->getListItems();?>
+
 	</div>
 	<div class="bar-right">
-		<?php tpl_button('subscribe')?>
-		<?php tpl_button('admin')?>
-		<?php tpl_button('profile')?>
-		<?php tpl_button('login')?>
-		<?php tpl_button('top')?>
+		<?php echo (new \dokuwiki\Menu\UserMenu())->getListItems();?>
 	</div>
 </div>
 

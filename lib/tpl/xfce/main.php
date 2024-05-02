@@ -58,15 +58,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 				<p><?php tpl_searchform(); ?></p>
 
 				<ul>
-					<?php
-						tpl_action('edit',      1, 'li', 0, '<span>', '</span>');
-						tpl_action('revert',    1, 'li', 0, '<span>', '</span>');
-						tpl_action('revisions', 1, 'li', 0, '<span>', '</span>');
-						tpl_action('backlink',  1, 'li', 0, '<span>', '</span>');
-						tpl_action('subscribe', 1, 'li', 0, '<span>', '</span>');
-						tpl_action('media',     1, 'li', 0, '<span>', '</span>');
-						tpl_action('top',       1, 'li', 0, '<span>', '</span>');
-					?>
+                                                <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems();?>
 				</ul>
 
 				<p><?php tpl_pageinfo() ?></p>
