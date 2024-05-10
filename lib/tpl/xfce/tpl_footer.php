@@ -10,11 +10,16 @@ if (!defined('DOKU_INC')) die();
 <!-- ********** FOOTER ********** -->
 <div class="bars">
 	<div class="bar-left">
-		<?php echo (new \dokuwiki\Menu\PageMenu())->getListItems();?>
-
+		<?php echo (new dokuwiki\Menu\Item\Edit())->asHtmlButton();?>
+		<?php echo (new dokuwiki\Menu\Item\Recent())->asHtmlButton();?>
+		<?php echo (new dokuwiki\Menu\Item\Index())->asHtmlButton();?>
+		<?php echo (new dokuwiki\Menu\Item\Media())->asHtmlButton();?>
 	</div>
 	<div class="bar-right">
-		<?php echo (new \dokuwiki\Menu\UserMenu())->getListItems();?>
+		<?php echo (new dokuwiki\Menu\Item\Admin())->asHtmlButton();?>
+		<?php echo (new dokuwiki\Menu\Item\Profile())->asHtmlButton();?>
+		<?php echo (new dokuwiki\Menu\Item\Login())->asHtmlButton();?>
+		<?php echo (new dokuwiki\Menu\Item\Top())->asHtmlButton();?>
 	</div>
 </div>
 
