@@ -10,11 +10,23 @@ if (!defined('DOKU_INC')) die();
 <!-- ********** FOOTER ********** -->
 <div class="bars">
 	<div class="bar-left">
-		<?php echo (new \dokuwiki\Menu\PageMenu())->getListItems();?>
-
+		<?php $items = (new \dokuwiki\Menu\SiteMenu())->getItems();
+        	foreach($items as $item) {
+            	echo $item->asHTMLButton();
+        }
+    	?>
+    	<?php $items = (new \dokuwiki\Menu\PageMenu())->getItems();
+        	foreach($items as $item) {
+            	echo $item->asHTMLButton();
+        	}
+    	?>
 	</div>
 	<div class="bar-right">
-		<?php echo (new \dokuwiki\Menu\UserMenu())->getListItems();?>
+    	<?php $items = (new \dokuwiki\Menu\UserMenu())->getItems();
+        	foreach($items as $item) {
+        	    echo $item->asHTMLButton();
+        	}
+    	?>
 	</div>
 </div>
 
