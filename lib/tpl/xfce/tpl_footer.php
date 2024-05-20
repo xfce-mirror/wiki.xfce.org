@@ -10,16 +10,23 @@ if (!defined('DOKU_INC')) die();
 <!-- ********** FOOTER ********** -->
 <div class="bars">
 	<div class="bar-left">
-		<?php echo (new dokuwiki\Menu\Item\Edit())->asHtmlButton();?>
-		<?php echo (new dokuwiki\Menu\Item\Recent())->asHtmlButton();?>
-		<?php echo (new dokuwiki\Menu\Item\Index())->asHtmlButton();?>
-		<?php echo (new dokuwiki\Menu\Item\Media())->asHtmlButton();?>
+		<?php $items = (new \dokuwiki\Menu\SiteMenu())->getItems();
+        	foreach($items as $item) {
+            	echo $item->asHTMLButton();
+        }
+    	?>
+    	<?php $items = (new \dokuwiki\Menu\PageMenu())->getItems();
+        	foreach($items as $item) {
+            	echo $item->asHTMLButton();
+        	}
+    	?>
 	</div>
 	<div class="bar-right">
-		<?php echo (new dokuwiki\Menu\Item\Admin())->asHtmlButton();?>
-		<?php echo (new dokuwiki\Menu\Item\Profile())->asHtmlButton();?>
-		<?php echo (new dokuwiki\Menu\Item\Login())->asHtmlButton();?>
-		<?php echo (new dokuwiki\Menu\Item\Top())->asHtmlButton();?>
+    	<?php $items = (new \dokuwiki\Menu\UserMenu())->getItems();
+        	foreach($items as $item) {
+        	    echo $item->asHTMLButton();
+        	}
+    	?>
 	</div>
 </div>
 
