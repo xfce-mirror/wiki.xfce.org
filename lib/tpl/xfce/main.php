@@ -58,7 +58,22 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 				<p><?php tpl_searchform(); ?></p>
 
 				<ul>
-                                                <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems();?>
+			        <?php $items = (new \dokuwiki\Menu\SiteMenu())->getItems();
+			          foreach($items as $item) {
+			            echo '<li>'
+		                    .$item->asHTMLLink()
+				    .'</li>';
+        			  }
+			        ?>
+
+			        <?php $items = (new \dokuwiki\Menu\UserMenu())->getItems();
+			          foreach($items as $item) {
+			            echo '<li>'
+		                    .$item->asHTMLLink()
+				    .'</li>';
+        			  }
+			        ?>
+ 		
 				</ul>
 
 				<p><?php tpl_pageinfo() ?></p>
